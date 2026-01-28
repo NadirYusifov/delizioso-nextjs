@@ -10,7 +10,9 @@ export default function NotFound() {
         <h3 className="text-[50px] text-medium-roast">Not Found</h3>
         <p className="text-[20px]">Could not find requested resource</p>
         <div className="p-10">
-            <Link href="/"><Button title="Return Home"/></Link>
+          <Link href="/">
+            <Button title="Return Home" />
+          </Link>
         </div>
       </div>
     </Layout>

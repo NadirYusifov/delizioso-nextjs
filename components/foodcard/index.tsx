@@ -27,7 +27,7 @@ export default function FoodCard({ food }: props) {
           />
           <p>{food.description}</p>
           <div className="card-actions justify-end">
-            <Button title="Order now"/>
+            <Button title="Order now" />
           </div>
         </div>
       </div>

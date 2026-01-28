@@ -6,7 +6,7 @@ interface ButtonProps {
   variant?: ButtonVariants;
   title?: string;
   className?: string;
-  onClick?: () => boolean | void ;
+  onClick?: () => boolean | void;
 }
 
 const ButtonStyle: Record<
@@ -35,7 +35,12 @@ const ButtonStyle: Record<
   },
 };
 
-export function Button({ variant = "primary", title, className, onClick }: ButtonProps) {
+export function Button({
+  variant = "primary",
+  title,
+  className,
+  onClick,
+}: ButtonProps) {
   const styles = ButtonStyle[variant];
   return (
     <button

@@ -6,16 +6,16 @@
 @plugin "daisyui";
 
 @theme {
-    --color-dark-orange: #ff8a00;
-    --color-medium-jungle: #3fa72f;
-    --color-dark-coffee: #311f09;
-    --color-emerald: #3fc66e;
-    --color-deep-walnut: #5c4529;
-    --color-porcelain: #fffbf6;
-    --color-dusty-taupe: #a08d76;
-    --color-dust-grey: #d0ccc7;
-    --color-alabaster-grey: #e3e2e0;
-    --font-raleway: "Raleway", sans-serif;
-    --font-popins: "Popins", sans-serif;
-    --font-tinos: "Tinos", serif;
+  --color-dark-orange: #ff8a00;
+  --color-medium-jungle: #3fa72f;
+  --color-dark-coffee: #311f09;
+  --color-emerald: #3fc66e;
+  --color-deep-walnut: #5c4529;
+  --color-porcelain: #fffbf6;
+  --color-dusty-taupe: #a08d76;
+  --color-dust-grey: #d0ccc7;
+  --color-alabaster-grey: #e3e2e0;
+  --font-raleway: "Raleway", sans-serif;
+  --font-popins: "Popins", sans-serif;
+  --font-tinos: "Tinos", serif;
 }

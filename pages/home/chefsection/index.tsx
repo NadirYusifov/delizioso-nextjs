@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -9,10 +9,9 @@ import ChefThird from "@/public/homeassets/chefthird.png";
 import ChefFourth from "@/public/homeassets/cheffourth.png";
 import { useWindowWidth } from "@react-hook/window-size";
 
-
 export default function ChefSection() {
-  const windowWidth = useWindowWidth()
-  const [open, setOpen] = useState(false)
+  const windowWidth = useWindowWidth();
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="mt-[10.971rem]">
@@ -84,8 +83,7 @@ export default function ChefSection() {
                 </p>
               </div>
             )}
-            {windowWidth >= 1024 &&
-              open &&
+            {windowWidth >= 1024 && open && (
               <div className="chef-fourth text-center lg:mt-[1.896rem]">
                 <Image
                   src={ChefFourth}
@@ -101,10 +99,14 @@ export default function ChefSection() {
                   Chef
                 </p>
               </div>
-            }
+            )}
           </div>
           <div className="hidden lg:flex items-center justify-center mt-37.5">
-            <Button onClick={() => setOpen(!open)} title="View all" className="w-[14.688rem] h-18.5 font-semibold text-[1.25rem] leading-[200%]" />
+            <Button
+              onClick={() => setOpen(!open)}
+              title="View all"
+              className="w-[14.688rem] h-18.5 font-semibold text-[1.25rem] leading-[200%]"
+            />
           </div>
         </div>
       </div>

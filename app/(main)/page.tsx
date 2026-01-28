@@ -7,15 +7,15 @@ import WelcomeSection from "@/pages/home/welcomesection";
 import WorkSection from "@/pages/home/worksection";
 
 export default function Home() {
-    return (
-        <main>
-            <HeroSection />
-            <WelcomeSection />
-            <PopularMenu/>
-            <ReserveSection />
-            <ChefSection />
-            <CustomersSection />
-            <WorkSection />
-        </main>
-    );
+  return (
+    <main>
+      <HeroSection />
+      <WelcomeSection />
+      <PopularMenu />
+      <ReserveSection />
+      <ChefSection />
+      <CustomersSection />
+      <WorkSection />
+    </main>
+  );
 }

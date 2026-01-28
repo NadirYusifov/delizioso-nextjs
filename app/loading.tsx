@@ -2,7 +2,6 @@ import Image from "next/image";
 import Logo from "@/public/logoassets/logodeliziosoblack.png";
 
 export default function Loading() {
-
   return (
     <>
       <div className="h-screen flex flex-col items-center justify-center">
@@ -12,5 +11,5 @@ export default function Loading() {
         Loading
       </div>
     </>
-  )
+  );
 }

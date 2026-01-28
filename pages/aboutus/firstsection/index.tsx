@@ -49,17 +49,17 @@ export default function FirstSection() {
               </h2>
             </div>
           )}
-            <div className="aboutus-first-caption text-center lg:text-start pt-5 lg:pt-0">
-              <p className="text-deep-walnut text-[1.063rem] lg:text-[1.25rem] leading-8 lg:leading-10 font-popins font-normal">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse.
-              </p>
-            </div>
+          <div className="aboutus-first-caption text-center lg:text-start pt-5 lg:pt-0">
+            <p className="text-deep-walnut text-[1.063rem] lg:text-[1.25rem] leading-8 lg:leading-10 font-popins font-normal">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse.
+            </p>
           </div>
         </div>
+      </div>
     </section>
   );
 }

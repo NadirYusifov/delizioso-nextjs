@@ -22,11 +22,13 @@ export default function Header() {
             </div>
             <nav className="header-right flex items-center space-x-5">
               <button className="bg-gray-50 rounded-full w-12.5 h-12.5 flex items-center justify-center relative">
-                <span className="absolute right-1 top-1 text-white text-[10px] bg-red-600 w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                <span className="absolute right-1 top-1 text-white text-[10px] bg-red-600 w-5 h-5 rounded-full flex items-center justify-center">
+                  0
+                </span>
                 <Image src={Cart} width={24} height={24} alt="Cart" />
               </button>
               <div className="hidden lg:block">
-              <LoginButton />
+                <LoginButton />
               </div>
               <MobileHeader />
             </nav>
@@ -34,5 +36,5 @@ export default function Header() {
         </div>
       </header>
     </>
-  )
+  );
 }

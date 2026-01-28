@@ -15,7 +15,7 @@ export default function RatingComponents({
   max,
   icon,
   emptyIcon,
-  precision
+  precision,
 }: RatingComponentProps) {
   return (
     <div>
