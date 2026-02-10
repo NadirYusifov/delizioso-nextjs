@@ -1,4 +1,6 @@
+
 import Rating from "@mui/material/Rating";
+import { styled } from "@mui/system";
 
 interface RatingComponentProps {
   name?: string;
@@ -9,6 +11,13 @@ interface RatingComponentProps {
   precision?: number;
 }
 
+const StyleRating = styled(Rating)({
+  "& .MuiRating-decimal": {
+    marginLeft: 5,
+    marginRight: 5
+  }
+})
+
 export default function RatingComponents({
   name,
   defaultValue,
@@ -17,9 +26,10 @@ export default function RatingComponents({
   emptyIcon,
   precision,
 }: RatingComponentProps) {
+
   return (
     <div>
-      <Rating
+      <StyleRating
         name={name}
         defaultValue={defaultValue}
         precision={precision}
