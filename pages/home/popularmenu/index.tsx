@@ -3,24 +3,20 @@
 import FoodCard from "@/components/foodcard";
 import { data } from "@/data/data";
 import { Pagination } from "@mui/material";
-import { useWindowWidth } from "@react-hook/window-size";
-import { useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 
 const ITEMS_PER_PAGE = 6;
 
 export default function PopularMenu() {
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState<number>(1);
-  const windowWidth = useWindowWidth();
 
   const count = Math.ceil(data.length / ITEMS_PER_PAGE);
-  console.log(count);
 
   const startIndex = (page - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentProducts = data.slice(startIndex, endIndex);
 
-  const handlePageChange = (_, value) => {
+  const handlePageChange = (_: ChangeEvent<unknown>, value: SetStateAction<number>) => {
     setPage(value);
   };
 
@@ -33,7 +29,7 @@ export default function PopularMenu() {
           </h3>
         </div>
         <div className="p-4 flex justify-center items-center">
-          <div className="grid grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 lg:gap-10">
             {currentProducts.map((data) => (
               <FoodCard key={data.id} food={data} />
             ))}
