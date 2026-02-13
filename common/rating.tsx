@@ -1,6 +1,6 @@
 
-import Rating from "@mui/material/Rating";
 import { styled } from "@mui/system";
+import Rating from "@mui/material/Rating";
 
 interface RatingComponentProps {
   name?: string;
@@ -28,7 +28,7 @@ export default function RatingComponents({
 }: RatingComponentProps) {
 
   return (
-    <div>
+    <>
       <StyleRating
         name={name}
         defaultValue={defaultValue}
@@ -37,6 +37,6 @@ export default function RatingComponents({
         icon={icon}
         emptyIcon={emptyIcon}
       />
-    </div>
+    </>
   );
 }

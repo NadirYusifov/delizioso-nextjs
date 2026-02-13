@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Foods } from "@/data/data";
+import { Button } from "@/common/button";
 import RatingComponents from "@/common/rating";
 import { FilledStar, EmptyStar } from "@/common/icon/star";
-import { Button } from "@/common/button";
 
 interface props {
   food: Foods;
@@ -11,9 +11,9 @@ interface props {
 export default function FoodCard({ food }: props) {
   return (
     <div className="group">
-      <div className="card bg-dust-grey/10 group-hover:bg-dark-orange w-[155.34px] h-63.75 lg:w-96 shadow-sm rounded-[70px] px-8 py-5">
+      <div className="card bg-dust-grey/10 group-hover:bg-dark-orange w-[155.34px] lg:w-96 shadow-sm rounded-[70px] px-3.5 py-3.5 transition-all ease-in-out duration-200">
         <figure>
-          <Image src={""} width={100} height={100} alt="food" />
+          <Image src={food.image} width={300} height={300} alt={food.name} />
         </figure>
         <div className="card-body">
         <div className="flex justify-center items-center flex-col">

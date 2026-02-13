@@ -15,7 +15,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Classic spaghetti with tomato sauce and basil.",
-    image: "spaghetti.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -24,7 +24,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Creamy linguine pasta with cheese.",
-    image: "linguine.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -33,7 +33,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Thin pasta with fresh tomatoes and herbs.",
-    image: "capellini.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -42,7 +42,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 3,
     description: "Fettuccine pasta with creamy white sauce.",
-    image: "fettuccine.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -51,7 +51,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Bucatini pasta with tomato and basil.",
-    image: "bucatini.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -60,7 +60,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Cheese filled tortellini with vegetables.",
-    image: "tortellini.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -69,7 +69,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Spiral pasta mixed with vegetables.",
-    image: "fusilli.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -78,7 +78,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 3,
     description: "Bow-tie pasta with herbs and sauce.",
-    image: "farfalle.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -87,7 +87,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Penne pasta in creamy vodka sauce.",
-    image: "penne-alla-vodka.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -96,7 +96,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Special pizza with mixed toppings.",
-    image: "splitza-signature.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -105,7 +105,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Loaded pizza with meat and vegetables.",
-    image: "super-supreme.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -114,7 +114,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Vegetarian pizza with fresh veggies.",
-    image: "veggie-garden.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -123,7 +123,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Juicy double beef burger with cheese.",
-    image: "double-beef-burger.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -132,7 +132,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Pizza packed with different meats.",
-    image: "meat-lovers.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -141,7 +141,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 5,
     description: "Premium pizza with rich toppings.",
-    image: "extravaganzza.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -150,7 +150,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Double meat pizza for meat lovers.",
-    image: "meat-meat.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -159,7 +159,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 4,
     description: "Classic meatzza pizza.",
-    image: "meatzza.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dinner",
   },
   {
@@ -168,7 +168,7 @@ export const data: Foods[] = [
     price: 12.05,
     rating: 3,
     description: "Light pizza with tuna and vegetables.",
-    image: "tuna-delight.png",
+    image: "/foodsassets/spagetti.png",
     category: "Lunch",
   },
   {
@@ -177,7 +177,7 @@ export const data: Foods[] = [
     price: 6.5,
     rating: 5,
     description: "Rich chocolate dessert cake.",
-    image: "dessert-1.png",
+    image: "/foodsassets/spagetti.png",
     category: "Dessert",
   },
   {
@@ -186,7 +186,7 @@ export const data: Foods[] = [
     price: 4.0,
     rating: 4,
     description: "Freshly squeezed orange juice.",
-    image: "drink-1.png",
+    image: "/foodsassets/spagetti.png",
     category: "Drink",
   },
 ];
