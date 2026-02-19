@@ -1,9 +1,9 @@
-import React from "react";
+import PopularMenu from "../home/popularmenu";
 
 export default function MenuSection() {
   return (
-    <div>
-      <h1>Menu</h1>
-    </div>
+    <>
+      <PopularMenu title={"Menu"} />
+    </>
   );
 }
