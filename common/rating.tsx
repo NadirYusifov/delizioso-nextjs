@@ -11,12 +11,18 @@ interface RatingComponentProps {
   precision?: number;
 }
 
-const StyleRating = styled(Rating)({
+const StyleRating = styled(Rating)(({ theme }) => ({
   "& .MuiRating-decimal": {
     marginLeft: 5,
     marginRight: 5
+  },
+  "& .css-xbcal6-MuiSvgIcon-root": {
+    [theme.breakpoints.down("md")]: {
+      width: "16px",
+      height: "16px"
+    }
   }
-})
+}));
 
 export default function RatingComponents({
   name,

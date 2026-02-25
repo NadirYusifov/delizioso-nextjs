@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/system";
 import { Pagination } from "@mui/material";
 import { ChangeEvent } from "react";
 
@@ -15,7 +15,7 @@ interface PaginationProps {
   onChange?: (event: ChangeEvent<unknown>, value: number) => void | undefined;
 }
 
-const StyledPagination = styled(Pagination)({
+const StyledPagination = styled(Pagination)(({ theme }) => ({
   "& .MuiPagination-ul": {
     display: "flex",
     justifyContent: "center",
@@ -23,10 +23,16 @@ const StyledPagination = styled(Pagination)({
     marginX: "20px",
   },
   "& .MuiPaginationItem-previousNext": {
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "14px",
+      marginRight: "14px"
+    },
+    [theme.breakpoints.up("md")]: {
+      marginLeft: "30px",
+      marginRight: "30px"
+    },
     backgroundColor: "#311F09",
     color: "white",
-    marginLeft: "30px",
-    marginRight: "30px",
   },
   "& .MuiPaginationItem-previousNext:hover": {
     backgroundColor: "#382610",
@@ -42,7 +48,7 @@ const StyledPagination = styled(Pagination)({
     backgroundColor: "#FFDBB0",
   },
   "& .MuiButtonBase-root": { borderRadius: "15px" },
-});
+}));
 
 export const PaginationComponents = ({
   count,
