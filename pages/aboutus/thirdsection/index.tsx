@@ -19,23 +19,23 @@ export default function ThirdSection() {
               </h2>
             </div>
           )}
-          <div className="aboutus-wrapper block lg:flex lg:justify-between lg:items-center">
+          <div className="aboutus-wrapper block lg:flex lg:gap-x-3 lg:justify-between lg:items-center">
             <picture className="aboutus-third-image w-full flex justify-center lg:block">
               <Image
-                width={230}
+                width={430}
                 height={1000}
                 quality={100}
                 src={ThirdImage}
                 alt="third-image"
                 loading="lazy"
                 className="rounded-3xl lg:rounded-none object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, 430px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, 230px"
               />
             </picture>
             <div className="aboutus-right-caption">
               <div className="aboutus-right-header">
                 {windowWidth >= 1024 && (
-                  <h2 className="text-dark-orange text-[40px] lg:text-[80px] text-center lg:text-start leading-11 lg:leading-22 font-bold font-tinos">
+                  <h2 className="text-dark-orange text-[40px] md:text-[60px] xl:text-[80px] text-center lg:text-start leading-11 lg:leading-22 font-bold font-tinos">
                     Owner
                     <span className="text-dark-coffee"> & <br /> {" "} Executive Chef</span>
                   </h2>
@@ -45,7 +45,7 @@ export default function ThirdSection() {
                 </h3>
               </div>
               <div className="aboutus-third-caption pt-10">
-                <div className="aboutus-third-caption-text text-center lg:text-start">
+                <article className="aboutus-third-caption-text text-center lg:text-start">
                   <p className="text-start text-dark-orange/20 font-bold leading-[100%] text-[5rem] font-tinos">
                     “
                   </p>
@@ -57,7 +57,7 @@ export default function ThirdSection() {
                   <p className="text-start text-dark-orange/20 font-bold leading-[100%] text-[5rem] rotate-180 font-tinos">
                     “
                   </p>
-                </div>
+                </article>
               </div>
             </div>
           </div>

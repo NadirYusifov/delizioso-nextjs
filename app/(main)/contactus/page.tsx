@@ -1,5 +1,4 @@
-import ContactUsSection from "@/pages/contactussection";
-import React from "react";
+import ContactUsSection from "@/pages/contact";
 
 export default function ContactUs() {
   return (

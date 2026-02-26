@@ -12,18 +12,18 @@ export default function FirstSection() {
     <section className="aboutus-first-section mb-12">
       {windowWidth < 1024 && (
         <div className="aboutus-right-header text-center mb-4 lg:mb-20">
-          <h2 className="text-dark-orange text-[40px] lg:text-[80px] leading-[100%] lg:leading-[88px] font-tinos font-bold">
-            Our<span className="text-dark-coffee">restautant</span>
+          <h2 className="text-dark-orange text-[40px] lg:text-[80px] leading-[100%] lg:leading-22 font-tinos font-bold">
+            Our<span className="text-dark-coffee"> restautant</span>
           </h2>
         </div>
       )}
-      <div className="aboutus-first-wrapper block lg:flex lg:items-center">
+      <div className="aboutus-first-wrapper  lg:flex lg:justify-center text-center lg:items-center">
         {windowWidth >= 1024 && (
           <picture className="aboutus-first-image w-full">
             <Image
               src={FirstImage}
               quality={100}
-              width={600}
+              width={861.55}
               height={600}
               alt="first"
             />
@@ -40,25 +40,27 @@ export default function FirstSection() {
             />
           </picture>
         )}
-        <div className="container">
+        <div className="container mx-auto px-4">
           {windowWidth >= 1024 && (
-            <div className="aboutus-right-header mb-20">
-              <h2 className="text-[80px] leading-[88px] text-dark-coffee font-bold font-tinos">
+            <article className="aboutus-right-header lg:text-start mb-20">
+              <h2 className="text-[80px] leading-22 text-dark-coffee font-bold font-tinos">
                 <span className="text-dark-orange">Our</span>
                 <br /> restautant
               </h2>
-            </div>
+            </article>
           )}
-          <div className="aboutus-first-caption text-center lg:text-start pt-5 lg:pt-0">
-            <p className="text-deep-walnut text-[1.063rem] lg:text-[1.25rem] leading-8 lg:leading-10 font-popins font-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse.
-            </p>
+            <div className="aboutus-first-caption pt-5 lg:pt-0">
+              <article>
+                <p className="text-deep-walnut text-center lg:text-start text-[1.063rem] lg:text-[1.25rem] leading-8 lg:leading-10 font-popins font-normal">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse.
+                </p>
+              </article>
+            </div>
           </div>
-        </div>
       </div>
     </section>
   );
