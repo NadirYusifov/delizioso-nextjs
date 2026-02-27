@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { useFormik } from "formik";
-import { Button } from "@mui/material";
-// import { IoEye, IoEyeOff } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { useFormik } from "formik";
+import { object, string } from "yup";
+import { Button } from "@mui/material";
+import { toast, ToastContainer } from "react-toastify";
 import LoginImage from "@/public/authassets/login1.png";
 import GoogleImage from "@/public/authassets/googlelogo.svg";
-import { object, string } from "yup";
-// import { toast, ToastContainer } from "react-toastify";
+import { Lock, LockOpen } from "lucide-react";
 
 export default function LoginSection() {
   const [showpsw, setShowPsw] = useState(false);
@@ -18,15 +18,14 @@ export default function LoginSection() {
     email: string().email().required("Email is required"),
     password: string()
       .min(8, "Password must be at least 8 characters")
-      .max(20, "Password must be at most 20 characters")
       .required("Password is required"),
   });
 
   const notify = () => {
     if (formik.isValid) {
-      toast.success("Account created successfully");
+      toast.success("Account created successfully!");
     } else {
-      toast.error("Account creation failed");
+      toast.error("Account creation failed!");
     }
   };
 
@@ -49,7 +48,7 @@ export default function LoginSection() {
           <div>
             <h3 className="text-[50px] font-bold leading-[100%]">Login</h3>
             <p className="text-[20px] text-irish-coffee pt-3 pb-10 leading-[200%] font-normal">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/signup">
                 <span className="text-sky-500">Sign up</span>
               </Link>
@@ -90,11 +89,11 @@ export default function LoginSection() {
                 >
                   {showpsw ? (
                     <span>
-                      <IoEye />
+                      <Lock />
                     </span>
                   ) : (
                     <span>
-                      <IoEyeOff />
+                      <LockOpen />
                     </span>
                   )}
                 </button>

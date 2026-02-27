@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ChangeEvent } from "react";
 
 type InputVariants = "outline" | "primary" | "secondary";
 
@@ -8,6 +9,9 @@ interface InputProps {
   placeholder?: string;
   type?: string;
   name?: string;
+  value?: string
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const InputStyle: Record<
@@ -36,15 +40,21 @@ export const Input = ({
   placeholder,
   type,
   name,
-  className
+  value,
+  className,
+  onBlur,
+  onChange
 }: InputProps) => {
   const styles = InputStyle[variant];
   return (
     <>
       <input
+        onChange={onChange}
+        onBlur={onBlur}
         type={type}
         name={name}
         placeholder={placeholder}
+        value={value}
         className={cn("input", styles.background, styles.container, className)}
       />
     </>

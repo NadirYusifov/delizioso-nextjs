@@ -1,14 +1,14 @@
 "use client";
 
 import { data } from "@/data/data";
-import { Button } from "@/common/button";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
 import { PaginationComponents } from "@/components/pagination";
+import { CategoryTabs } from "@/components/categorytabs";
 
 const ITEMS_PER_PAGE = 6;
 
-export default function PopularMenu({ title }: any) {
+export default function PopularMenu({ title }: {title?: string}) {
   const [page, setPage] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<string>("All category");
 
@@ -39,11 +39,11 @@ export default function PopularMenu({ title }: any) {
         </div>
         <div className="category-tab flex justify-start md:justify-center items-center gap-x-6 lg:gap-x-8 py-1.5 mb-15 overflow-x-scroll lg:overflow-hidden">
           {categories.map((category) => (
-            <Button
-              className={`px-[1.063rem] lg:px-[3.388rem] h-10 lg:h-[4.003rem] font-popins font-semibold leading-[200%] text-[0.975rem] lg:text-[1.25rem] ${category === selectedCategory ? "bg-dark-coffee text-white" : "bg-dust-grey/10"}`}
-              variant="default"
+            <CategoryTabs
               key={category}
               title={category}
+              category={category}
+              isSelected={category === selectedCategory}
               onClick={() => {
                 setSelectedCategory(category);
                 setPage(1);
@@ -77,3 +77,4 @@ export default function PopularMenu({ title }: any) {
     </section>
   );
 }
+

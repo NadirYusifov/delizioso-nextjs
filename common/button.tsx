@@ -6,6 +6,7 @@ interface ButtonProps {
   variant?: ButtonVariants;
   title?: string;
   className?: string;
+  type?: "submit" | "reset" | "button"
   onClick?: () => boolean | void;
 }
 
@@ -39,6 +40,7 @@ export function Button({
   variant = "primary",
   title,
   className,
+  type,
   onClick,
 }: ButtonProps) {
   const styles = ButtonStyle[variant];
@@ -52,6 +54,7 @@ export function Button({
         styles.title,
         className,
       )}
+      type={type}
     >
       {title}
     </button>

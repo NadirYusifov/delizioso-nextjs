@@ -29,7 +29,7 @@ export default function HeaderLink() {
         </Link>
         <Link
           className={`hover:translate-x-2 transition-all lg:hover:translate-x-0 ${path === "/orderonline" ? "text-dark-coffee lg:text-dark-orange" : "text-white lg:text-black"}`}
-          href={"/orderonline"}
+          href={"/order"}
         >
           Order online
         </Link>
