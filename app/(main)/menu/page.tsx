@@ -1,5 +1,4 @@
-import MenuSection from "@/pages/menu/[index]";
-import React from "react";
+import MenuSection from "@/pages/menusection";
 
 export default function Menu() {
   return (

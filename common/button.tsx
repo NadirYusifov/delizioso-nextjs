@@ -16,22 +16,22 @@ const ButtonStyle: Record<
 > = {
   primary: {
     title: "text-white",
-    container: "rounded-full font-popins",
+    container: " font-popins",
     background: "bg-dark-orange",
   },
   secondary: {
     title: "text-white",
-    container: "rounded-full font-popins",
+    container: "font-popins",
     background: "bg-medium-jungle",
   },
   outline: {
     title: "text-dark-coffee",
-    container: "rounded-full font-popins",
+    container: "font-popins",
     background: "bg-transparent",
   },
   default: {
     title: "text-dark-coffee",
-    container: "rounded-full font-popins",
+    container: "font-popins",
     background: "bg-white",
   },
 };

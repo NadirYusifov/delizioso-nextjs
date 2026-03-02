@@ -1,6 +1,6 @@
 "use client";
 
-import { data } from "@/data/data";
+import { data } from "@/data/menu";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
 import { PaginationComponents } from "@/components/pagination";
