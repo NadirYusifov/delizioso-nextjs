@@ -3,13 +3,13 @@ import { Input } from "@/common/input"
 
 export const OrderList = () => {
     return (
-        <div className="flex ml-10 p-5">
+        <div className="flex ml-5 p-5">
             <div>
                 <article className="text-center">
                     <h1 className="bg-indigo-velvet font-popins font-semibold text-[1.875rem] leading-[100%] text-white rounded-[1.25rem] py-8">Order list</h1>
                 </article>
                 <div>
-                    Count
+                    
                 </div>
                 <hr className="border-dashed border-gray-400"/>
                 <div className="space-y-5 my-6.25">
