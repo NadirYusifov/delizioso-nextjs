@@ -1,6 +1,7 @@
 export interface Foods {
   id: number;
   name: string;
+  title: string;
   image: string;
   price: number;
   rating: number;
@@ -12,6 +13,7 @@ export const data: Foods[] = [
   {
     id: 1,
     name: "Spaghetti",
+    title: "pasta",
     price: 12.05,
     rating: 4,
     description: "Classic spaghetti with tomato sauce and basil.",
@@ -21,6 +23,7 @@ export const data: Foods[] = [
   {
     id: 2,
     name: "Linguine",
+    title: "pasta",
     price: 12.05,
     rating: 5,
     description: "Creamy linguine pasta with cheese.",
@@ -30,6 +33,7 @@ export const data: Foods[] = [
   {
     id: 3,
     name: "Capellini",
+    title: "pasta",
     price: 12.05,
     rating: 4,
     description: "Thin pasta with fresh tomatoes and herbs.",
@@ -39,6 +43,7 @@ export const data: Foods[] = [
   {
     id: 4,
     name: "Fettuccine",
+    title: "pasta",
     price: 12.05,
     rating: 3,
     description: "Fettuccine pasta with creamy white sauce.",
@@ -48,6 +53,7 @@ export const data: Foods[] = [
   {
     id: 5,
     name: "Bucatini",
+    title: "pasta",
     price: 12.05,
     rating: 4,
     description: "Bucatini pasta with tomato and basil.",
@@ -57,6 +63,7 @@ export const data: Foods[] = [
   {
     id: 6,
     name: "Tortellini",
+    title: "pasta",
     price: 12.05,
     rating: 5,
     description: "Cheese filled tortellini with vegetables.",
@@ -66,6 +73,7 @@ export const data: Foods[] = [
   {
     id: 7,
     name: "Fusilli",
+    title: "pasta",
     price: 12.05,
     rating: 4,
     description: "Spiral pasta mixed with vegetables.",
@@ -75,6 +83,7 @@ export const data: Foods[] = [
   {
     id: 8,
     name: "Farfalle",
+    title: "pasta",
     price: 12.05,
     rating: 3,
     description: "Bow-tie pasta with herbs and sauce.",
@@ -83,7 +92,8 @@ export const data: Foods[] = [
   },
   {
     id: 9,
-    name: "Penne Alla Vodka",
+    name: "Penne Alla Vodak",
+    title: "pasta",
     price: 12.05,
     rating: 5,
     description: "Penne pasta in creamy vodka sauce.",
@@ -93,6 +103,7 @@ export const data: Foods[] = [
   {
     id: 10,
     name: "Splitza Signature",
+    title: "pizza",
     price: 12.05,
     rating: 5,
     description: "Special pizza with mixed toppings.",
@@ -102,6 +113,7 @@ export const data: Foods[] = [
   {
     id: 11,
     name: "Super Supreme",
+    title: "pizza",
     price: 12.05,
     rating: 4,
     description: "Loaded pizza with meat and vegetables.",
@@ -111,6 +123,7 @@ export const data: Foods[] = [
   {
     id: 12,
     name: "Veggie Garden",
+    title: "pizza",
     price: 12.05,
     rating: 4,
     description: "Vegetarian pizza with fresh veggies.",
@@ -120,6 +133,7 @@ export const data: Foods[] = [
   {
     id: 13,
     name: "Double Beef Burger",
+    title: "pizza",
     price: 12.05,
     rating: 5,
     description: "Juicy double beef burger with cheese.",
@@ -129,6 +143,7 @@ export const data: Foods[] = [
   {
     id: 14,
     name: "Meat Lovers",
+    title: "pizza",
     price: 12.05,
     rating: 4,
     description: "Pizza packed with different meats.",
@@ -138,6 +153,7 @@ export const data: Foods[] = [
   {
     id: 15,
     name: "Extravaganzza",
+    title: "pizza",
     price: 12.05,
     rating: 5,
     description: "Premium pizza with rich toppings.",
@@ -147,6 +163,7 @@ export const data: Foods[] = [
   {
     id: 16,
     name: "Meat & Meat",
+    title: "pizza",
     price: 12.05,
     rating: 4,
     description: "Double meat pizza for meat lovers.",
@@ -156,6 +173,7 @@ export const data: Foods[] = [
   {
     id: 17,
     name: "Meatzza",
+    title: "pizza",
     price: 12.05,
     rating: 4,
     description: "Classic meatzza pizza.",
@@ -165,30 +183,11 @@ export const data: Foods[] = [
   {
     id: 18,
     name: "Tuna Delight",
+    title: "pizza",
     price: 12.05,
     rating: 3,
     description: "Light pizza with tuna and vegetables.",
     image: "/foodsassets/spagetti.png",
     category: "Lunch",
-  },
-  {
-    id: 19,
-    name: "Chocolate Cake",
-    price: 6.5,
-    rating: 5,
-    description: "Rich chocolate dessert cake.",
-    image: "/foodsassets/spagetti.png",
-    category: "Dessert",
-  },
-  {
-    id: 20,
-    name: "Fresh Orange Juice",
-    price: 4.0,
-    rating: 4,
-    description: "Freshly squeezed orange juice.",
-    image: "/foodsassets/spagetti.png",
-    category: "Drink",
-  },
+  }
 ];
-
-

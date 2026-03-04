@@ -3,107 +3,107 @@
 import { CategoryTabs } from "@/components/categorytabs";
 import FoodCard from "@/components/foodcard";
 import { PaginationComponents } from "@/components/pagination";
-import { pastaList } from "@/data/pastalist";
+// import { pastaList } from "@/data/pastalist";
 import { ChangeEvent, useState } from "react";
 import { PizzaList } from "../pizzalist";
-import { pizzaList } from "@/data/pizzalist";
+// import { pizzaList } from "@/data/pizzalist";
 import { OrderList } from "../orderlist";
+import { data } from "@/data/menu";
 
 const ITEMS_PER_PAGE = 9;
 
 export const PastaList = () => {
-    const [page, setPage] = useState<number>(1);
-    const [selectedCategory, setSelectedCategory] =
-        useState<string>("All category");
+  const [page, setPage] = useState<number>(1);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>("All category");
 
-    const categories = ["All category", "Dinner", "Lunch", "Dessert", "Drink"];
+  const categories = ["All category", "Dinner", "Lunch", "Dessert", "Drink"];
 
-    const filteredpastaData =
-        selectedCategory === "All category"
-            ? pastaList
-            : pastaList.filter((item) => item.category === selectedCategory);
-    const filteredpizzaData =
-        selectedCategory === "All category"
-            ? pizzaList
-            : pizzaList.filter((item) => item.category === selectedCategory);
+  const filteredpastaData =
+    selectedCategory === "All category"
+      ? data.filter((item) => item.title === "pasta")
+      : data.filter((item) => item.category === selectedCategory && item.title === "pasta");
+  const filteredpizzaData =
+    selectedCategory === "All category"
+      ? data.filter((item) => item.title === "pizza")
+      : data.filter((item) => item.category === selectedCategory && item.title === "pizza");
 
-    const pastaCount = Math.ceil(filteredpastaData.length / ITEMS_PER_PAGE);
-    const pizzaCount = Math.ceil(filteredpizzaData.length / ITEMS_PER_PAGE);
+  const pastaCount = Math.ceil(filteredpastaData.length / ITEMS_PER_PAGE);
+  const pizzaCount = Math.ceil(filteredpizzaData.length / ITEMS_PER_PAGE);
 
-    const startIndex = (page - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    const pastaProducts = filteredpastaData.slice(startIndex, endIndex);
+  const startIndex = (page - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const pastaProducts = filteredpastaData.slice(startIndex, endIndex);
 
-    const handlePageChange = (_: ChangeEvent<unknown>, value: number) => {
-        setPage(value);
-    };
+  const handlePageChange = (_: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
-    return (
-        <div>
-            <section className="my-28">
-                <div className="">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center pb-15">
-                            <h3 className="text-[60px] lg:text-[80px] text-dark-coffee font-bold leading-[114.9%]">
-                                {"Menu"}
-                            </h3>
-                        </div>
-                        <div className="category-tab flex justify-start md:justify-center items-center gap-x-6 lg:gap-x-8 py-1.5 mb-15 overflow-x-scroll lg:overflow-hidden">
-                            {categories.map((category) => (
-                                <CategoryTabs
-                                    key={category}
-                                    title={category}
-                                    category={category}
-                                    isSelected={category === selectedCategory}
-                                    onClick={() => {
-                                        setSelectedCategory(category);
-                                        setPage(1);
-                                    }}
-                                />
-                            ))}
-                        </div>
-
-
-                        <div className="flex">
-                            <div className="flex flex-col">
-                            <article className="pb-15">
-                                <h2 className="uppercase inline-block text-[1.875rem] font-semibold font-popins leading-[100%] border-b-2 border-dark-orange">Pasta</h2>
-                            </article>
-                            <div className="flex justify-center items-center">
-                                {pastaProducts.length > 0 ? (
-                                    <div className="grid grid-cols-2 xl:grid-cols-3 gap-3.5 lg:gap-10">
-                                        {pastaProducts.map((item) => (
-                                            <FoodCard key={item.id} food={item} />
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <p>No items found in this category.</p>
-                                )}
-                            </div>
-                            <div className="mt-20">
-                                <PaginationComponents
-                                    size="large"
-                                    shape="rounded"
-                                    count={pastaCount}
-                                    defaultPage={startIndex}
-                                    siblingCount={0}
-                                    boundaryCount={1}
-                                    onChange={handlePageChange}
-                                />
-                            </div>
-                            <PizzaList
-                                filteredpizzaData={filteredpizzaData}
-                                pizzaCount={pizzaCount}
-                            />
-
-                            </div>
-                            <aside>
-                                <OrderList />
-                            </aside>
-                        </div>
+  return (
+    <div>
+      <section className="my-28">
+        <div className="">
+          <div className="container mx-auto px-4">
+            <div className="text-center pb-15">
+              <h3 className="text-[60px] lg:text-[80px] text-dark-coffee font-bold leading-[114.9%]">
+                {"Menu"}
+              </h3>
+            </div>
+            <div className="category-tab flex justify-start md:justify-center items-center gap-x-6 lg:gap-x-8 py-1.5 mb-15 overflow-x-scroll lg:overflow-hidden">
+              {categories.map((category) => (
+                <CategoryTabs
+                  key={category}
+                  title={category}
+                  category={category}
+                  isSelected={category === selectedCategory}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    setPage(1);
+                  }}
+                />
+              ))}
+            </div>
+            <div className="flex">
+              <div className="flex flex-col">
+                <article className="pb-15">
+                  <h2 className="uppercase inline-block text-[1.875rem] font-semibold font-popins leading-[100%] border-b-2 border-dark-orange">
+                    Pasta
+                  </h2>
+                </article>
+                <div className="flex justify-center items-center">
+                  {pastaProducts.length > 0 ? (
+                    <div className="grid grid-cols-2 xl:grid-cols-3 gap-3.5 lg:gap-10">
+                      {pastaProducts.map((item) => (
+                        <FoodCard key={item.id} food={item} />
+                      ))}
                     </div>
+                  ) : (
+                    <p>No items found in this category.</p>
+                  )}
                 </div>
-            </section>
+                <div className="mt-20">
+                  <PaginationComponents
+                    size="large"
+                    shape="rounded"
+                    count={pastaCount}
+                    defaultPage={startIndex}
+                    siblingCount={0}
+                    boundaryCount={1}
+                    onChange={handlePageChange}
+                  />
+                </div>
+                <PizzaList
+                  filteredpizzaData={filteredpizzaData}
+                  pizzaCount={pizzaCount}
+                />
+              </div>
+              <aside>
+                <OrderList />
+              </aside>
+            </div>
+          </div>
         </div>
-    );
+      </section>
+    </div>
+  );
 };

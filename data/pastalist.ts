@@ -1,14 +1,6 @@
-export interface PastaFood {
-    id: number;
-    name: string;
-    price: number;
-    rating: number;
-    category: string;
-    image: string;
-    description: string;
-}
+import { Foods } from "./menu";
 
-export const pastaList: PastaFood[] = [
+export const pastaList: Foods[] = [
     {
         id: 1,
         name: "Spaghetti",

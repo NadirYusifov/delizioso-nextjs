@@ -1,7 +1,7 @@
-import { PizzaFood } from "@/data/pizzalist";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
 import { PaginationComponents } from "@/components/pagination";
+import { Foods } from "@/data/menu";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -10,7 +10,7 @@ export const PizzaList = ({
     filteredpizzaData,
 }: {
     pizzaCount: number;
-    filteredpizzaData: PizzaFood[];
+    filteredpizzaData: Foods[];
 }) => {
     const [page, setPage] = useState<number>(1);
 

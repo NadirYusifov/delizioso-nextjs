@@ -1,14 +1,6 @@
-export interface PizzaFood {
-    id: number;
-    name: string;
-    price: number;
-    rating: number;
-    category: string;
-    image: string;
-    description: string;
-}
+import { Foods } from "./menu";
 
-export const pizzaList: PizzaFood[] = [
+export const pizzaList: Foods[] = [
     {
         id: 1,
         name: "Splitza Signature",

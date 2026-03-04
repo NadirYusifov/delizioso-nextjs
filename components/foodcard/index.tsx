@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { Foods } from "@/data/menu";
@@ -14,8 +14,8 @@ interface props {
 }
 
 export default function FoodCard({ food }: props) {
-  const windowWidth = useWindowWidth()
-  const dispatch = useAppDispatch()
+  const windowWidth = useWindowWidth();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="group">
@@ -50,13 +50,17 @@ export default function FoodCard({ food }: props) {
             </p>
             {windowWidth >= 1024 ? (
               <Button
-                onClick={() => console.log(dispatch(addToCart(food)))}
+                onClick={() => {
+                  dispatch(addToCart(food));
+                }}
                 className="h-[3.438rem] rounded-full font-semibold leading-[200%] font-popins group-hover:bg-white group-hover:text-dark-orange py-[0.719rem] px-[2.279rem]"
                 title="Order now"
               />
             ) : (
               <Button
-                onClick={() => { dispatch(addToCart(food)) }}
+                onClick={() => {
+                  dispatch(addToCart(food));
+                }}
                 className="w-10 h-10 md:w-[2.878rem] md:h-[2.878rem] lg:w-[3.078rem] lg:h-[3.078rem] text-[1.125rem] md:text-[1.125rem] lg:text-[1rem] font-semibold leading-[200%] font-popins rounded-full group-hover:bg-white group-hover:text-dark-orange"
                 title="+"
               />
