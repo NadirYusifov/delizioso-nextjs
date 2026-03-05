@@ -34,7 +34,12 @@ export const PizzaList = ({
                     ))}
                 </div>
             ) : (
-                <p>No items found in this category.</p>
+                <div className="grid grid-cols-2 xl:grid-cols-3 gap-3.5 lg:gap-10">
+                    <article className="text-center mx-auto col-start-2">
+                        <span className="text-7xl">🍽️</span>
+                        <p className="text-[1.563rem] leading-[200%]">No items found in this category.</p>
+                    </article>
+                </div>
             )}
 
             <div className="mt-20">

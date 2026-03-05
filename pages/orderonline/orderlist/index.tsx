@@ -1,4 +1,5 @@
 import { Button } from "@/common/button";
+import { Remove } from "@/common/icon/remove";
 import { Input } from "@/common/input";
 import {
   decrementQuantity,
@@ -12,9 +13,9 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export const OrderList = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectCartItems);
-  const totalPrice = useAppSelector(selectTotalPrice)
+  const totalPrice = useAppSelector(selectTotalPrice);
 
-  const taxfee = ((totalPrice * items.length) / 100);
+  const taxfee = (totalPrice * items.length) / 100;
 
   return (
     <div className="flex ml-5 p-5">
@@ -25,22 +26,45 @@ export const OrderList = () => {
           </h1>
         </article>
         <div>
+          {items.length == 0 && (
+            <article className="text-center">
+              <p className="text-[1.563rem] text-black font-medium leading-[200%] my-12.5">The basket is empty, add food.</p>
+            </article>
+          )}
           <ul>
             {items.map((item) => (
-              <li key={item.id}>
-                {item.name}
-                <button onClick={() => dispatch(decrementQuantity(item.id))}>
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button onClick={() => dispatch(incrementQuantity(item.id))}>
-                  +
-                </button>
-                <p>{(item.quantity * item.price).toFixed(1)}</p>
-                <button onClick={() => dispatch(removeFromCart(item.id))}>
-                  X
-                </button>
-              </li>
+                <li className="my-12.5" key={item.id}>
+                  <div className="flex justify-between">
+                    <p className="font-semibold text-[1.563rem] leading-[200%] font-popins">
+                      {item.name}
+                    </p>
+                    <button className="cursor-pointer" onClick={() => dispatch(removeFromCart(item.id))}>
+                      <Remove />
+                    </button>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="bg-bright-snow rounded-full">
+                      <Button
+                        className="rounded-full text-cinnabar shadow-md shadow-cinnabar/10"
+                        variant="default"
+                        title="‒"
+                        onClick={() => {
+                          dispatch(decrementQuantity(item.id));
+                        }}
+                      />
+                      <span className="px-[1.299rem]">{item.quantity}</span>
+                      <Button
+                        className="rounded-full shadow-md shadow-emerald/10 text-emerald"
+                        variant="default"
+                        title="+"
+                        onClick={() => {
+                          dispatch(incrementQuantity(item.id));
+                        }}
+                      />
+                    </div>
+                    <p className="text-dark-orange text-[1.563rem] font-popins font-medium leading-[200%]">$ {(item.quantity * item.price).toFixed(2)}</p>
+                  </div>
+                </li>
             ))}
           </ul>
         </div>
@@ -61,15 +85,15 @@ export const OrderList = () => {
           </div>
         </div>
         <hr className="border-dashed border-gray-400" />
-        <div className="space-y-3 mx-9.75 my-15">
-          {items.length > 0 && (
+        <div className="space-y-3 my-15">
+          {items.length > 0 ? (
             <>
               <article className="flex justify-between items-center">
                 <p className="font-popins font-semibold text-[1.563rem] leading-[100%]">
                   Subtotal
                 </p>
                 <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
-                  $ {totalPrice.toFixed(1)}
+                  $ {totalPrice.toFixed(2)}
                 </p>
               </article>
               <article className="flex justify-between items-center">
@@ -77,7 +101,7 @@ export const OrderList = () => {
                   Tax fee
                 </p>
                 <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
-                  $ {taxfee}
+                  $ {taxfee.toFixed(2)}
                 </p>
               </article>
               <article className="flex justify-between items-center">
@@ -93,11 +117,47 @@ export const OrderList = () => {
                   Total
                 </p>
                 <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
-                  $ {(totalPrice - taxfee)}
+                  $ {(totalPrice - taxfee).toFixed(2)}
                 </p>
               </article>
             </>
-          )}
+          ) : (
+            <>
+              <article className="flex justify-between items-center">
+                <p className="font-popins font-semibold text-[1.563rem] leading-[100%]">
+                  Subtotal
+                </p>
+                <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
+                  $ 0
+                </p>
+              </article>
+              <article className="flex justify-between items-center">
+                <p className="font-popins font-semibold text-[1.563rem] leading-[100%]">
+                  Tax fee
+                </p>
+                <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
+                  $ 0
+                </p>
+              </article>
+              <article className="flex justify-between items-center">
+                <p className="font-popins font-semibold text-[1.563rem] leading-[100%]">
+                  Voucher
+                </p>
+                <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
+                  $ 0
+                </p>
+              </article>
+              <article className="flex justify-between items-center">
+                <p className="font-popins font-semibold text-[1.563rem] leading-[100%]">
+                  Total
+                </p>
+                <p className="text-dark-orange font-popins font-medium text-[1.563rem] leading-[200%]">
+                  $ 0
+                </p>
+              </article>
+            </>
+          )
+          }
         </div>
         <div>
           <Button

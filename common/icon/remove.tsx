@@ -1,0 +1,14 @@
+export const Remove = () => {
+    return (
+        <>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V6" stroke="#FF3838" strokeWidth="1.5" />
+                <path d="M10 3H14" stroke="#FF3838" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M10 10L10 17" stroke="#FF3838" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M14 10L14 17" stroke="#FF3838" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M4 6H20" stroke="#FF3838" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+
+        </>
+    )
+}

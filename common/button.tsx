@@ -4,7 +4,7 @@ type ButtonVariants = "primary" | "secondary" | "outline" | "default";
 
 interface ButtonProps {
   variant?: ButtonVariants;
-  title?: string;
+  title?: string
   className?: string;
   type?: "submit" | "reset" | "button"
   onClick?: () => boolean | void;

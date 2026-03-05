@@ -33,7 +33,7 @@ export default function PopularMenu({ title }: {title?: string}) {
     <section className="my-28">
       <div className="container mx-auto px-4">
         <div className="text-center pb-15">
-          <h3 className="text-[60px] lg:text-[80px] text-dark-coffee font-bold leading-[114.9%]">
+          <h3 className="text-[60px] lg:text-[80px] text-dark-coffee font-bold font-tinos leading-[114.9%]">
             {title || "Our popular menu"}
           </h3>
         </div>
