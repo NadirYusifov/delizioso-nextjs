@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/common/button";
 import { Remove } from "@/common/icon/remove";
 import { Input } from "@/common/input";
@@ -9,13 +11,20 @@ import {
   selectTotalPrice,
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useRouter } from "next/navigation";
 
 export const OrderList = () => {
+  const router = useRouter()
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectCartItems);
   const totalPrice = useAppSelector(selectTotalPrice);
 
   const taxfee = (totalPrice * items.length) / 100;
+
+  const handleCheckout = () => {
+    document.cookie = 'show_checkout=true; path=/'
+    router.refresh()
+  }
 
   return (
     <div className="flex ml-5 p-5">
@@ -33,38 +42,38 @@ export const OrderList = () => {
           )}
           <ul>
             {items.map((item) => (
-                <li className="my-12.5" key={item.id}>
-                  <div className="flex justify-between">
-                    <p className="font-semibold text-[1.563rem] leading-[200%] font-popins">
-                      {item.name}
-                    </p>
-                    <button className="cursor-pointer" onClick={() => dispatch(removeFromCart(item.id))}>
-                      <Remove />
-                    </button>
+              <li className="my-12.5" key={item.id}>
+                <div className="flex justify-between">
+                  <p className="font-semibold text-[1.563rem] leading-[200%] font-popins">
+                    {item.name}
+                  </p>
+                  <button className="cursor-pointer" onClick={() => dispatch(removeFromCart(item.id))}>
+                    <Remove />
+                  </button>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="bg-bright-snow rounded-full">
+                    <Button
+                      className="rounded-full text-cinnabar shadow-md shadow-cinnabar/10"
+                      variant="default"
+                      title="‒"
+                      onClick={() => {
+                        dispatch(decrementQuantity(item.id));
+                      }}
+                    />
+                    <span className="px-[1.299rem]">{item.quantity}</span>
+                    <Button
+                      className="rounded-full shadow-md shadow-emerald/10 text-emerald"
+                      variant="default"
+                      title="+"
+                      onClick={() => {
+                        dispatch(incrementQuantity(item.id));
+                      }}
+                    />
                   </div>
-                  <div className="flex justify-between items-center">
-                    <div className="bg-bright-snow rounded-full">
-                      <Button
-                        className="rounded-full text-cinnabar shadow-md shadow-cinnabar/10"
-                        variant="default"
-                        title="‒"
-                        onClick={() => {
-                          dispatch(decrementQuantity(item.id));
-                        }}
-                      />
-                      <span className="px-[1.299rem]">{item.quantity}</span>
-                      <Button
-                        className="rounded-full shadow-md shadow-emerald/10 text-emerald"
-                        variant="default"
-                        title="+"
-                        onClick={() => {
-                          dispatch(incrementQuantity(item.id));
-                        }}
-                      />
-                    </div>
-                    <p className="text-dark-orange text-[1.563rem] font-popins font-medium leading-[200%]">$ {(item.quantity * item.price).toFixed(2)}</p>
-                  </div>
-                </li>
+                  <p className="text-dark-orange text-[1.563rem] font-popins font-medium leading-[200%]">$ {(item.quantity * item.price).toFixed(2)}</p>
+                </div>
+              </li>
             ))}
           </ul>
         </div>
@@ -161,6 +170,7 @@ export const OrderList = () => {
         </div>
         <div>
           <Button
+            onClick={handleCheckout}
             variant="default"
             className="w-full bg-emerald rounded-[0.938rem] text-[1.563rem] leading-[200%] font-semibold font-popins text-white py-7"
             title="Checkout"

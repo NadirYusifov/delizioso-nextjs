@@ -45,7 +45,6 @@ export const PastaList = () => {
   };
 
   return (
-    <div>
       <section className="my-28">
         <div className="">
           <div className="container mx-auto px-4">
@@ -125,13 +124,12 @@ export const PastaList = () => {
               )}
               
               {/* <Button onClick={() => console.log(open)} className="rounded-[0.625rem] font-popins font-semibold text-[1rem] leading-[100%] bg-emerald text-white px-12.5 py-6" variant="default" title="Order now" /> */}
-              <button onClick={() => setOpen(!open)} className="relative rounded-[0.625rem] font-popins font-semibold text-[1rem] leading-[100%] bg-emerald text-white px-12.5 py-6 cursor-pointer">
-                {open && <OrderListMobile/>} Order now
+              <button onClick={() => setOpen(!open)} className="rounded-[0.625rem] font-popins font-semibold text-[1rem] leading-[100%] bg-emerald text-white px-12.5 py-6 cursor-pointer">
+                {open && <OrderListMobile onClose={() => setOpen(false)}/>} Order now
               </button>
             </div>
           </div>
         </div>
       </section>
-    </div>
   );
 };
