@@ -22,8 +22,15 @@ export const OrderList = () => {
   const taxfee = (totalPrice * items.length) / 100;
 
   const handleCheckout = () => {
-    document.cookie = 'show_checkout=true; path=/'
-    router.refresh()
+    const cartItems = items
+
+    if(cartItems.length === 0) {
+      alert("Zəhmət olmasa məhsul əlavə edin!")
+      return
+    }
+
+    document.cookie = `cart_items=${JSON.stringify(cartItems)}; path=/`
+    router.push("/order/checkout")
   }
 
   return (

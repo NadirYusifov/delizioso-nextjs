@@ -10,7 +10,7 @@ import {
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
-import { Arrow } from "@/common/icon/arrow";
+import {Arrow} from "@/common/icon/arrow";
 import Image from "next/image";
 import Link from "next/link";
 

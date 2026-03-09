@@ -32,7 +32,7 @@ const InputStyle: Record<
     container:
       "rounded-[20px] py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
     background: "bg-transparent",
-  },
+  }
 };
 
 export const Input = ({
@@ -55,7 +55,7 @@ export const Input = ({
         name={name}
         placeholder={placeholder}
         value={value}
-        className={cn("input", styles.background, styles.container, className)}
+        className={cn(styles.background, styles.container, className)}
       />
     </>
   );
