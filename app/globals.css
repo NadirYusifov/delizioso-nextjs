@@ -25,3 +25,9 @@
   --font-popins: "Popins", sans-serif;
   --font-tinos: "Tinos", serif;
 }
+
+@layer components {
+  .leaflet-container {
+    height: 60dvh;
+  }
+}
