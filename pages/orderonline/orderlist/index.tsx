@@ -63,20 +63,18 @@ export const OrderList = () => {
                     <Button
                       className="rounded-full text-cinnabar shadow-md shadow-cinnabar/10"
                       variant="default"
-                      title="‒"
                       onClick={() => {
                         dispatch(decrementQuantity(item.id));
                       }}
-                    />
+                    >‒</Button>
                     <span className="px-[1.299rem]">{item.quantity}</span>
                     <Button
                       className="rounded-full shadow-md shadow-emerald/10 text-emerald"
                       variant="default"
-                      title="+"
                       onClick={() => {
                         dispatch(incrementQuantity(item.id));
                       }}
-                    />
+                    >+</Button>
                   </div>
                   <p className="text-dark-orange text-[1.563rem] font-popins font-medium leading-[200%]">$ {(item.quantity * item.price).toFixed(2)}</p>
                 </div>
@@ -96,8 +94,7 @@ export const OrderList = () => {
             <Button
               variant="default"
               className="bg-blue-bell py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"
-              title="+"
-            />
+            >+</Button>
           </div>
         </div>
         <hr className="border-dashed border-gray-400" />
@@ -180,8 +177,7 @@ export const OrderList = () => {
             onClick={handleCheckout}
             variant="default"
             className="w-full bg-emerald rounded-[0.938rem] text-[1.563rem] leading-[200%] font-semibold font-popins text-white py-7"
-            title="Checkout"
-          />
+          >Checkout</Button>
         </div>
       </div>
     </div>

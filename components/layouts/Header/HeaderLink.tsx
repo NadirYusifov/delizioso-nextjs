@@ -28,7 +28,7 @@ export default function HeaderLink() {
           About us
         </Link>
         <Link
-          className={`hover:translate-x-2 transition-all lg:hover:translate-x-0 ${path === "/orderonline" ? "text-dark-coffee lg:text-dark-orange" : "text-white lg:text-black"}`}
+          className={`hover:translate-x-2 transition-all lg:hover:translate-x-0 ${path === "/order" || "/order/checkout" ? "text-dark-coffee lg:text-dark-orange" : "text-white lg:text-black"}`}
           href={"/order"}
         >
           Order online

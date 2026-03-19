@@ -1,13 +1,14 @@
 import { cn } from "@/lib/utils";
+import { MouseEvent } from "react";
 
 type ButtonVariants = "primary" | "secondary" | "outline" | "default";
 
 interface ButtonProps {
+  children?: React.ReactNode
   variant?: ButtonVariants;
-  title?: string
   className?: string;
   type?: "submit" | "reset" | "button"
-  onClick?: () => boolean | void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => boolean | void;
 }
 
 const ButtonStyle: Record<
@@ -38,10 +39,10 @@ const ButtonStyle: Record<
 
 export function Button({
   variant = "primary",
-  title,
   className,
   type,
-  onClick,
+  children,
+  onClick
 }: ButtonProps) {
   const styles = ButtonStyle[variant];
   return (
@@ -56,7 +57,7 @@ export function Button({
       )}
       type={type}
     >
-      {title}
+      {children}
     </button>
   );
 }

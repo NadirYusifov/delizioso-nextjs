@@ -10,7 +10,7 @@ import {
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
-import {Arrow} from "@/common/icon/arrow";
+import { Arrow } from "@/common/icon/arrow";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -65,20 +65,18 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
                           <Button
                             className="w-8 h-8 rounded-full text-cinnabar shadow-md shadow-cinnabar/10"
                             variant="default"
-                            title="‒"
                             onClick={() => {
                               dispatch(decrementQuantity(item.id));
                             }}
-                          />
+                          >‒</Button>
                           <span className="px-[1.199rem] text-[0.774rem] font-popins leading-[100%] font-normal  text-black">{item.quantity}</span>
                           <Button
                             className="w-8 h-8 rounded-full shadow-md shadow-emerald/10 text-emerald"
                             variant="default"
-                            title="+"
                             onClick={() => {
                               dispatch(incrementQuantity(item.id));
                             }}
-                          />
+                          >+</Button>
                         </div>
                         <p className="text-dark-orange text-[0.875rem] font-medium leading-[100%]">${item.price}</p>
                       </div>
@@ -99,8 +97,7 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
                 <Button
                   variant="default"
                   className="bg-blue-bell py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"
-                  title="+"
-                />
+                >+</Button>
               </div>
             </div>
             <hr className="border-dashed border-gray-400" />
@@ -180,11 +177,10 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
             </div>
             <div>
               <Link href="/order">
-              <Button
-                variant="default"
-                className="w-3/5  bg-emerald rounded-[0.938rem] text-[1rem] leading-[200%] font-semibold font-popins text-white py-7"
-                title="Checkout"
-              />
+                <Button
+                  variant="default"
+                  className="w-3/5  bg-emerald rounded-[0.938rem] text-[1rem] leading-[200%] font-semibold font-popins text-white py-7" 
+                >Checkout</Button>
               </Link>
             </div>
           </div>
