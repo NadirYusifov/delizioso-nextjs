@@ -1,8 +1,10 @@
 'use client'
 
-import { Button } from "@/common/button";
-import { Remove } from "@/common/icon/remove";
 import { Input } from "@/common/input";
+import { toast } from "react-toastify";
+import { Button } from "@/common/button";
+import { useRouter } from "next/navigation";
+import { Remove } from "@/common/icon/remove";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -11,11 +13,10 @@ import {
   selectTotalPrice,
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 
 export const OrderList = () => {
-  const router = useRouter()
+
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectCartItems);
   const totalPrice = useAppSelector(selectTotalPrice);
@@ -25,7 +26,7 @@ export const OrderList = () => {
   const handleCheckout = () => {
     const cartItems = items
 
-    if(cartItems.length === 0) {
+    if (cartItems.length === 0) {
       toast("Zəhmət olmasa məhsul əlavə edin!")
       return
     }
@@ -50,7 +51,7 @@ export const OrderList = () => {
           )}
           <ul>
             {items.map((item) => (
-              <li className="my-12.5" key={item.id}>
+              <li className="my-12.5 list-item" key={item.id}>
                 <div className="flex justify-between">
                   <p className="font-semibold text-[1.563rem] leading-[200%] font-popins">
                     {item.name}
@@ -68,7 +69,7 @@ export const OrderList = () => {
                         dispatch(decrementQuantity(item.id));
                       }}
                     >‒</Button>
-                    <span className="px-[1.299rem]">{item.quantity}</span>
+                    <span className="count-number px-[1.299rem]">{item.quantity}</span>
                     <Button
                       className="rounded-full shadow-md shadow-emerald/10 text-emerald"
                       variant="default"
@@ -91,10 +92,10 @@ export const OrderList = () => {
             </h2>
           </article>
           <div className="flex items-center gap-x-2">
-            <Input className="text-blue-bell h-12.5 lg:h-full text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
+            <Input type="text" className="text-blue-bell h-12.5 lg:h-16 text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
             <Button
               variant="default"
-              className="bg-blue-bell py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"
+              className="bg-blue-bell h-12.5 lg:h-16 py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"
             >+</Button>
           </div>
         </div>

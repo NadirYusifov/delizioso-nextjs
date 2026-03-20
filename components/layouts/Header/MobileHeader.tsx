@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import MenuIcon from "@/public/headerassets/menuicon.svg";
 import { useState } from "react";
 import HeaderLink from "./HeaderLink";
 import LoginButton from "./LoginButton";
+import MenuIcon from "@/public/headerassets/menuicon.svg";
 
 export default function MobileHeader() {
   const [menu, setMenu] = useState(false);

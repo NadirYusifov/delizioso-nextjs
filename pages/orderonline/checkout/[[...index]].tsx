@@ -14,6 +14,12 @@ import { Textarea } from "@/common/textarea";
 import { Subtract } from "@/common/icon/subtract";
 import { useRouter } from "next/navigation";
 
+interface ContactFormValues {
+  firstname: string;
+  lastname: string;
+
+}
+
 export const Checkout = () => {
   const router = useRouter()
   // const [searchInput, setSearchInput] = useState("");
@@ -98,10 +104,10 @@ export const Checkout = () => {
             <fieldset>
               <legend className="font-semibold lg:font-medium text-[14px] lg:text-[30px] leading-[100%] font-popins">Order data</legend>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 my-7.5 lg:my-15">
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="First name" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Last name" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Phone number" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Email address" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="firstname" placeholder="First name" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="lastname" placeholder="Last name" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="" placeholder="Phone number" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="firstname" placeholder="Email address" />
                 <Textarea rows={12} className="w-full col-span-2 font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Note" />
               </div>
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Order time</legend>

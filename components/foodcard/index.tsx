@@ -25,7 +25,7 @@ export default function FoodCard({ food }: props) {
         </figure>
         <div className="card-body p-3.5 lg:p-4">
           <div className="flex justify-center items-center flex-col">
-            <article className="card-title text-center">
+            <article className="card-title text-center pb-1.25">
               <h2 className="text-dark-coffee group-hover:text-white text-[1.1rem] md:text-[1.875rem] font-semibold leading-[100%] md:leading-[200%] font-popins">
                 {food.name}
               </h2>
@@ -39,7 +39,7 @@ export default function FoodCard({ food }: props) {
               emptyIcon={<EmptyStar />}
             />
           </div>
-          <article className="text-center">
+          <article className="text-center pt-3 lg:pt-3.75">
             <p className="text-shadow-deep-walnut-2 truncate group-hover:text-white text-[0.75rem] md:text-[0.875rem] font-normal font-popins leading-[120%] lg:leading-[200%]">
               {food.description}
             </p>

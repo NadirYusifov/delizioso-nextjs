@@ -26,9 +26,7 @@ export default function WelcomeSection() {
               nec quam{" "}
             </p>
             <Link href={"/menu"}>
-            <Button
-              className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] text-[0.875rem] lg:text-[1.25rem] rounded-full"
-            >See our menu</Button>
+            <Button className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] text-[0.875rem] lg:text-[1.25rem] rounded-full">See our menu</Button>
             </Link>
           </div>
         </div>
