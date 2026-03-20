@@ -20,17 +20,17 @@ const InputStyle: Record<
 > = {
   primary: {
     container:
-      "rounded-[10px] lg:rounded-[20px] py-4.5 lg:py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
+      "rounded-[10px] lg:rounded-[20px] py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
     background: "bg-dust-grey/10",
   },
   secondary: {
     container:
-      "rounded-[10px] lg:rounded-[20px] py-4.5 lg:py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
+      "rounded-[10px] lg:rounded-[20px] py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
     background: "bg-white",
   },
   outline: {
     container:
-      "rounded-[10px] lg:rounded-[20px] py-4.5 lg:py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
+      "rounded-[10px] lg:rounded-[20px] py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
     background: "bg-transparent",
   }
 };

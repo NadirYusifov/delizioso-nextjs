@@ -3,8 +3,8 @@
 import { data } from "@/data/menu";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
+import { CategoryTabs } from "@/components/categorytabs"; 
 import { PaginationComponents } from "@/components/pagination";
-import { CategoryTabs } from "@/components/categorytabs";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -41,14 +41,13 @@ export default function PopularMenu({ title }: {title?: string}) {
           {categories.map((category) => (
             <CategoryTabs
               key={category}
-              title={category}
               category={category}
               isSelected={category === selectedCategory}
               onClick={() => {
                 setSelectedCategory(category);
                 setPage(1);
               }}
-            />
+            >{category}</CategoryTabs>
           ))}
         </div>
         <div className="flex justify-center items-center">

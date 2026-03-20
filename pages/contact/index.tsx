@@ -165,9 +165,8 @@ export default function ContactUsSection() {
               <Button
                 type="button"
                 onClick={handleSubmit}
-                title="Submit"
                 className="w-60 h-14 bg-dark-orange text-[18px] text-white rounded-[20px] py-3 font-popins font-normal"
-              />
+              >Submit</Button>
             </div>
           </form>
         </div>

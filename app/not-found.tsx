@@ -11,7 +11,7 @@ export default function NotFound() {
         <p className="text-[20px]">Could not find requested resource</p>
         <div className="p-10">
           <Link href="/">
-            <Button title="Return Home" />
+            <Button className="rounded-[1.125rem] px-10 py-7 text-[1.125rem]">Return home</Button>
           </Link>
         </div>
       </div>

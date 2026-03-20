@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Button } from "@/common/button";
 import { useWindowWidth } from "@react-hook/window-size";
 import ReserveFirstImage from "@/public/homeassets/reserveimg1.png";
-import ReserveSecondImage from "@/public/homeassets/reserveimg2.png";
 import ReserveThirdImage from "@/public/homeassets/reserveimg3.png";
+import ReserveSecondImage from "@/public/homeassets/reserveimg2.png";
 import ReserveMobileImage from "@/public/homeassets/reservemobileimg.png";
 
 export default function ReserveSection() {
@@ -65,9 +65,8 @@ export default function ReserveSection() {
               nec quam{" "}
             </p>
             <Button
-              title="Reservation"
-              className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] mb-[0.856rem] font-semibold text-[0.875rem] lg:text-[1.25rem]"
-            />
+              className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] mb-[0.856rem] font-semibold text-[0.875rem] lg:text-[1.25rem] rounded-full"
+            >Reservation</Button>
           </div>
         </div>
       </div>

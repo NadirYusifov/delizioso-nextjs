@@ -104,9 +104,8 @@ export default function ChefSection() {
           <div className="hidden lg:flex items-center justify-center mt-37.5">
             <Button
               onClick={() => setOpen(!open)}
-              title="View all"
-              className="w-[14.688rem] h-18.5 font-semibold text-[1.25rem] leading-[200%]"
-            />
+              className="w-[14.688rem] h-18.5 font-semibold text-[1.25rem] rounded-full leading-[200%]"
+            >View all</Button>
           </div>
         </div>
       </div>

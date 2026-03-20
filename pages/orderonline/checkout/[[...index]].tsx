@@ -12,8 +12,10 @@ import "leaflet-geosearch/dist/geosearch.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Textarea } from "@/common/textarea";
 import { Subtract } from "@/common/icon/subtract";
+import { useRouter } from "next/navigation";
 
 export const Checkout = () => {
+  const router = useRouter()
   // const [searchInput, setSearchInput] = useState("");
   // const [searchResults, setSearchResults] = useState<any[]>([]);
   // const [selectedLocation, setSelectedLocation] = useState<{
@@ -42,6 +44,14 @@ export const Checkout = () => {
 
     L.Marker.prototype.setIcon(defaultIcon);
   }, []);
+
+
+  useEffect(() => {
+    const hasItems = document.cookie.includes('cart_items')
+    if (!hasItems) {
+      router.replace('/order')
+    }
+  })
 
   // const handleSearchInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const query = e.target.value;
@@ -74,8 +84,8 @@ export const Checkout = () => {
     <section className="mt-15.75 lg:mt-34.5">
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between">
-          <Button variant="default" className="bg-dark-coffee w-7.5 h-7.5 lg:w-12.5 lg:h-12.5 rounded-full flex items-center justify-center">
-            <Arrow />
+          <Button onClick={() => router.push('/order')} variant="default" className="bg-dark-coffee px-2.5 py-2.5 w-7.5 h-7.5 lg:w-12.5 lg:h-12.5 rounded-full flex items-center justify-center">
+            <Arrow stroke="#fff"/>
           </Button>
           <article className="text-center grow">
             <h1 className="text-dark-coffee font-tinos font-bold leading-[100%] text-[30px] lg:text-[5rem]">
@@ -88,14 +98,14 @@ export const Checkout = () => {
             <fieldset>
               <legend className="font-semibold lg:font-medium text-[14px] lg:text-[30px] leading-[100%] font-popins">Order data</legend>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 my-7.5 lg:my-15">
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="First name" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Last name" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Phone number" />
-                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Email address" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="First name" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Last name" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Phone number" />
+                <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" placeholder="Email address" />
                 <Textarea rows={12} className="w-full col-span-2 font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Note" />
               </div>
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Order time</legend>
-              <div className="flex space-x-10 my-15">
+              <div className="flex space-x-10 my-7.5 lg:my-15">
                 <div className="flex items-center gap-2">
                   <input
                     className="radio radio-success radio-sm lg:radio-md"
@@ -146,7 +156,7 @@ export const Checkout = () => {
 
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Payment method</legend>
               <div className="flex flex-col space-y-3.75 lg:space-y-10 my-7.5 lg:my-15">
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[20px] flex items-center gap-2 py-7 px-13.5">
+                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
                   <input
                     className="radio radio-success radio-sm lg:radio-md"
                     name="paymentmethod"
@@ -157,7 +167,7 @@ export const Checkout = () => {
                   />
                   <label htmlFor="cashondelivery" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Cash On Delivery</label>
                 </div>
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[20px] flex items-center gap-2 py-7 px-13.5">
+                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
                   <input
                     className="radio radio-success radio-sm lg:radio-md"
                     name="paymentmethod"
@@ -167,7 +177,7 @@ export const Checkout = () => {
                   />
                   <label htmlFor="bcavirtualaccount" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">BCA Virtual Account</label>
                 </div>
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[20px] flex items-center gap-2 py-7 px-13.5">
+                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
                   <input
                     className="radio radio-success radio-sm lg:radio-md"
                     name="paymentmethod"
@@ -180,11 +190,12 @@ export const Checkout = () => {
               </div>
 
               <legend className="font-popins font-medium text-[14px] lg:text-[30px] leading-[110%] my-7.5 lg:my-15">Shipping address</legend>
-              <div className="grid grid-cols-3 lg:grid-cols-7 gap-x-2.5 lg:gap-x-10.5">
+              <div className="grid grid-cols-4 lg:grid-cols-7 gap-x-2.5 lg:gap-x-10.5 items-center">
                 <Input
-                  className="form w-full font-normal text-deep-walnut placeholder:text-deep-walnut text-[12px] lg:text-[25px] col-span-2 lg:col-span-6 px-18.25 leading-[100%]"
+                  className="bg-dust-grey/10 form w-full h-12.5 lg:h-full font-normal text-deep-walnut placeholder:text-deep-walnut text-[12px] lg:text-[25px] col-span-3 lg:col-span-6 lg:py-10 lg:px-18.25 leading-[100%]"
                   type="text"
                   placeholder="Please type your address"
+                  variant="outline"
                 // value={searchInput}
                 // onChange={handleSearchInput}
                 />
@@ -203,19 +214,19 @@ export const Checkout = () => {
                   </ul>
                 )} */}
                 <Button
-                  className="bg-blue-bell lg:col-span-1 text-white mt-2 py-10 px-7 text-[12px] lg:text-[25px] font-semibold font-popins leading-[100%] rounded-[20px]"
+                  className="bg-blue-bell h-12.5 lg:h-25 lg:col-span-1 text-white py-7 lg:py-10 px-7 text-[12px] lg:text-[25px] font-semibold font-popins leading-[100%] rounded-[10px] lg:rounded-[20px]"
                   variant="default"
                   onClick={(e: MouseEvent<HTMLButtonElement>) => e.preventDefault()}
                 >Search</Button>
                 <Button
                   variant="default"
-                  className="bg-dust-grey/10 text-[12px] lg:text-[25px] gap-7 col-span-full lg:col-span-6 flex justify-start text-cinnabar py-10 px-18.25 mt-10.25 leading-[100%] font-normal font-popins rounded-[20px] border-0"
+                  className="bg-dust-grey/10 h-12.5 lg:h-25 text-[12px] lg:text-[25px] gap-7 col-span-full lg:col-span-6 flex justify-start text-cinnabar py-7 px-6.25 lg:py-10 lg:px-18.25 mt-6.25 lg:mt-10.25 leading-[100%] font-normal font-popins rounded-[6.31px] lg:rounded-[20px] border-0"
                   onClick={(e: MouseEvent<HTMLButtonElement>) => e.preventDefault()}
-                ><Subtract/> Use your current location</Button>
+                ><Subtract /> Use your current location</Button>
               </div>
 
               <div className="mt-3.5 lg:mt-10 rounded-lg overflow-hidden shadow-lg">
-                <MapContainer center={[40.885147, -73.9220459]} zoom={13} className="w-full h-164.75 rounded-xl z-10">
+                <MapContainer scrollWheelZoom={false} center={[40.885147, -73.9220459]} zoom={13} className="w-full h-164.75 rounded-xl z-10">
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

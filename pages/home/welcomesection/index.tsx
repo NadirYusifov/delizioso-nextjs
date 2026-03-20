@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/common/button";
 import WelcomeSectionImage from "@/public/homeassets/welcomesection.png";
+import Link from "next/link";
 
 export default function WelcomeSection() {
   return (
@@ -24,10 +25,11 @@ export default function WelcomeSection() {
               ultricies at eleifend proin. Congue nibh nulla malesuada ultricies
               nec quam{" "}
             </p>
+            <Link href={"/menu"}>
             <Button
-              title="See our menu"
-              className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] text-[0.875rem] lg:text-[1.25rem]"
-            />
+              className="w-42 h-[3.438rem] lg:w-[14.526rem] lg:h-[4.653rem] text-[0.875rem] lg:text-[1.25rem] rounded-full"
+            >See our menu</Button>
+            </Link>
           </div>
         </div>
       </div>

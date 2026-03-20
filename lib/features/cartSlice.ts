@@ -27,7 +27,7 @@ const cartSlice = createSlice({
       );
 
       if (existing) {
-        existing.quantity += 1;
+        if(existing.quantity < 10) existing.quantity += 1 ;
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
@@ -51,7 +51,10 @@ const cartSlice = createSlice({
 
     incrementQuantity: (state, action) => {
       const itemFood = state.items.find((item) => item.id === action.payload);
-      if (itemFood) itemFood.quantity += 1;
+       
+      if (!itemFood) return
+      
+      if (itemFood.quantity < 10) itemFood.quantity += 1;
     },
 
     decrementQuantity: (state, action) => {
@@ -60,7 +63,7 @@ const cartSlice = createSlice({
       if (!itemFood) return;
 
       if (itemFood.quantity === 1) {
-        state.items = state.items.filter((item) => item.id === action.payload);
+        state.items = state.items.filter((item) => item.id !== action.payload);
       } else {
         itemFood.quantity -= 1;
       }

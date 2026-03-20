@@ -19,11 +19,14 @@ export default function MobileHeader() {
           className="header-menu-btn lg:hidden bg-gray-50 rounded-full w-12.5 h-12.5 flex items-center justify-center"
         >
           {menu && (
-            <div className="bg-dark-orange w-1/2 h-screen fixed right-0 top-0 -z-50">
-              <div className="mt-24">
-                <HeaderLink />
-                <div className="flex justify-center mt-8">
-                  <LoginButton />
+            <div>
+              <div className="fixed bg-black/50 w-full inset-0 -z-30"></div>
+              <div className="bg-dark-orange w-1/2 h-screen fixed right-0 top-0 -z-30 translate-x-1 transition-all duration-300">
+                <div className="mt-24">
+                  <HeaderLink />
+                  <div className="flex justify-center mt-8">
+                    <LoginButton />
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/common/button";
 import HeroImage from "@/public/homeassets/heroimage.png";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -19,15 +20,15 @@ export default function HeroSection() {
               senectus dictum arcu sit tristique donec eget.
             </p>
             <div className="hero-btn space-x-5  lg:space-y-0 lg:space-x-5 pb-10">
+              <Link href={"/order"}>
               <Button
-                title="Order Now"
-                className="w-[8.694rem] h-[2.781rem] lg:h-[4.653rem] lg:w-[14.526rem] text-[0.848rem] lg:text-[1.25rem] font-popins leading-[200%]"
-              />
+                className="w-[8.694rem] h-[2.781rem] lg:h-[4.653rem] lg:w-[14.526rem] text-[0.848rem] lg:text-[1.25rem] font-popins leading-[200%] rounded-full"
+              >Order now</Button>
+              </Link>
               <Button
                 variant="secondary"
-                title="Reservation"
-                className="w-[8.694rem] h-[2.781rem] lg:h-[4.653rem] lg:w-[14.526rem] text-[0.848rem] lg:text-[1.25rem] font-popins leading-[200%]"
-              />
+                className="w-[8.694rem] h-[2.781rem] lg:h-[4.653rem] lg:w-[14.526rem] text-[0.848rem] lg:text-[1.25rem] font-popins leading-[200%] rounded-full"
+              >Reservation</Button>
             </div>
           </div>
           <div className="hero-image">

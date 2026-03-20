@@ -1,5 +1,8 @@
+import Link from "next/link";
+import Image from "next/image";
 import { Input } from "@/common/input";
 import { Button } from "@/common/button";
+import { Arrow } from "@/common/icon/arrow";
 import { Remove } from "@/common/icon/remove";
 import {
   decrementQuantity,
@@ -9,10 +12,6 @@ import {
   selectTotalPrice,
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-
-import { Arrow } from "@/common/icon/arrow";
-import Image from "next/image";
-import Link from "next/link";
 
 interface OrderListMobileProps {
   onClose: () => void;
@@ -30,9 +29,9 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
       <div className="py-22 w-full h-full bg-white overflow-auto">
         <div className="bg-indigo-velvet py-5" onClick={onClose}>
           <div className="container px-4 mx-auto grid grid-cols-3">
-            <button className="bg-white fill-dark-coffee w-5 h-5 px-5 py-5 rounded-full cursor-pointer">
-              <Arrow />
-            </button>
+            <Button variant="default" className="w-5 h-5 px-5 py-5 bg-white rounded-full cursor-pointer flex items-center justify-center">
+              <Arrow stroke="#311f09"/>
+            </Button>
             <article className="text-center flex items-center justify-center">
               <h1 className="text-white">Order List</h1>
             </article>
@@ -93,7 +92,7 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
                 </h2>
               </article>
               <div className="flex items-center gap-x-2">
-                <Input className="w-full text-blue-bell text-[0.875rem] text-center leading-[100%] font-normal font-popins uppercase" />
+                <Input className="w-full h-12.5 lg:full text-blue-bell text-[0.875rem] text-center leading-[100%] font-normal font-popins uppercase" />
                 <Button
                   variant="default"
                   className="bg-blue-bell py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"

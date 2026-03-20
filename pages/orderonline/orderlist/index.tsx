@@ -12,6 +12,7 @@ import {
 } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export const OrderList = () => {
   const router = useRouter()
@@ -25,7 +26,7 @@ export const OrderList = () => {
     const cartItems = items
 
     if(cartItems.length === 0) {
-      alert("Zəhmət olmasa məhsul əlavə edin!")
+      toast("Zəhmət olmasa məhsul əlavə edin!")
       return
     }
 
@@ -90,7 +91,7 @@ export const OrderList = () => {
             </h2>
           </article>
           <div className="flex items-center gap-x-2">
-            <Input className="text-blue-bell text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
+            <Input className="text-blue-bell h-12.5 lg:h-full text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
             <Button
               variant="default"
               className="bg-blue-bell py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"

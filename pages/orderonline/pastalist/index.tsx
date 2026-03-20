@@ -57,14 +57,13 @@ export const PastaList = () => {
               {categories.map((category) => (
                 <CategoryTabs
                   key={category}
-                  title={category}
                   category={category}
                   isSelected={category === selectedCategory}
                   onClick={() => {
                     setSelectedCategory(category);
                     setPage(1);
                   }}
-                />
+               >{category}</CategoryTabs>
               ))}
             </div>
             <div className="flex justify-between">

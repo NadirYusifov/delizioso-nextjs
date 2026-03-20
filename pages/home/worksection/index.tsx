@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Button } from "@/common/button";
 import { useWindowWidth } from "@react-hook/window-size";
-import LineImage from "@/public/homeassets/line.png";
 import WorkBgImage from "@/public/homeassets/workbgimage.png";
 import WorkBgMobileImage from "@/public/homeassets/workbgimagemobile.png";
 
@@ -56,14 +55,12 @@ export default function WorkSection() {
           </div>
           <div className="flex flex-col space-y-4 py-5 md:flex-row md:space-y-0 md:space-x-3 md:py-5 lg:py-6.25">
             <Button
-              title="Order Now"
-              className="w-42 h-12.5 lg:h-[4.653rem] lg:w-[14.526rem] text-[0.875rem] lg:text-[1.125rem] font-semibold font-popins leading-[200%]"
-            />
+              className="w-42 h-12.5 lg:h-[4.653rem] lg:w-[14.526rem] text-[0.875rem] lg:text-[1.125rem] border-0 font-semibold font-popins leading-[200%] rounded-full"
+            >Order Now</Button>
             <Button
-              title="Reservation"
               variant="default"
-              className="text-dark-coffee w-42 h-12.5 lg:h-[4.653rem] lg:w-[14.526rem] text-[0.875rem] lg:text-[1.125rem] font-semibold font-popins leading-[200%]"
-            />
+              className="text-dark-coffee w-42 h-12.5 lg:h-[4.653rem] lg:w-[14.526rem] text-[0.875rem] lg:text-[1.125rem] font-semibold font-popins leading-[200%] rounded-full"
+            >Reservation</Button>
           </div>
         </div>
       </div>
