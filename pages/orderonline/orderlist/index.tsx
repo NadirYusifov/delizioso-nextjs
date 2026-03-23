@@ -31,7 +31,7 @@ export const OrderList = () => {
       return
     }
 
-    document.cookie = `cart_items=${JSON.stringify(cartItems)}; path=/`
+    document.cookie = `cart_items=${encodeURIComponent(JSON.stringify(cartItems))}; path=/`
     router.push("/order/checkout")
   }
 

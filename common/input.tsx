@@ -9,9 +9,9 @@ interface InputProps {
   placeholder?: string;
   type?: string;
   name?: string;
-  value?: string
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputStyle: Record<
@@ -32,7 +32,7 @@ const InputStyle: Record<
     container:
       "rounded-[10px] lg:rounded-[20px] py-7 px-10 font-popins font-normal placeholder:text-grey-olive outline-none border-none",
     background: "bg-transparent",
-  }
+  },
 };
 
 export const Input = ({
@@ -43,7 +43,7 @@ export const Input = ({
   value,
   className,
   onBlur,
-  onChange
+  onChange,
 }: InputProps) => {
   const styles = InputStyle[variant];
   return (
