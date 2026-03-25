@@ -40,7 +40,7 @@ export default function FoodCard({ food }: props) {
             />
           </div>
           <article className="text-center pt-3 lg:pt-3.75">
-            <p className="text-shadow-deep-walnut-2 truncate group-hover:text-white text-[0.75rem] md:text-[0.875rem] font-normal font-popins leading-[120%] lg:leading-[200%]">
+            <p className="text-shadow-deep-walnut-2 line-clamp-3 group-hover:text-white text-[0.75rem] md:text-[0.875rem] font-normal font-popins leading-[120%] lg:leading-[200%]">
               {food.description}
             </p>
           </article>

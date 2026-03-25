@@ -16,11 +16,11 @@ import { PhoneInput } from "@/components/phonenumberinput";
 // import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
-interface ContactFormValues {
-  firstname: string;
-  lastname: string;
+// interface ContactFormValues {
+//   firstname: string;
+//   lastname: string;
 
-}
+// }
 
 export const Checkout = () => {
   const router = useRouter()
@@ -94,7 +94,7 @@ export const Checkout = () => {
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between">
           <Button onClick={() => router.push('/order')} variant="default" className="bg-dark-coffee px-2.5 py-2.5 w-7.5 h-7.5 lg:w-12.5 lg:h-12.5 rounded-full flex items-center justify-center">
-            <Arrow stroke="#fff"/>
+            <Arrow stroke="#fff" />
           </Button>
           <article className="text-center grow">
             <h1 className="text-dark-coffee font-tinos font-bold leading-[100%] text-[30px] lg:text-[5rem]">
@@ -106,23 +106,25 @@ export const Checkout = () => {
           <form>
             <fieldset>
               <legend className="font-semibold lg:font-medium text-[14px] lg:text-[30px] leading-[100%] font-popins">Order data</legend>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 my-7.5 lg:my-15">
+              <div className="my-7.5 lg:my-15">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
                 <Input className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="firstname" placeholder="First name" />
                 <Input className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="lastname" placeholder="Last name" />
                 {/* <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="" placeholder="Phone number" /> */}
                 {/* <PhoneInput className="" placeholder="Enter your phone number" value={value} onChange={() => setValue}/> */}
-                <PhoneInput/>
+                <PhoneInput />
                 <Input className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="firstname" placeholder="Email address" />
-                </div>
-                <Textarea rows={12} className="w-full col-span-2 font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%]" placeholder="Note" />
+              </div>
+              <Textarea rows={12} className="w-full col-span-2 font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] mt-5 lg:mt-8" placeholder="Note" />
+              </div>
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Order time</legend>
               <div className="flex space-x-10 my-7.5 lg:my-15">
                 <div className="flex items-center gap-2">
-                  <Radio type="radio" value="Order now" name="ordertime" id="ordernow" variant="custom" className="radio"/>
+                  <Radio defaultChecked type="radio" value="Order now" name="ordertime" id="ordernow" variant="custom" className="radio" />
                   <label htmlFor="ordernow" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Order now</label>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Radio type="radio" value="Order later" name="ordertime" id="orderlater" variant="custom" className="radio"/>
+                  <Radio type="radio" value="Order later" name="ordertime" id="orderlater" variant="custom" className="radio" />
                   <label htmlFor="orderlater" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Order later</label>
                 </div>
               </div>
@@ -130,11 +132,11 @@ export const Checkout = () => {
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Order method</legend>
               <div className="flex space-x-10 my-7.5 lg:my-15">
                 <div className="flex items-center gap-2">
-                  <Radio type="radio" value="Delivery" name="ordermethod" id="delivery" variant="custom" className="radio"/>
+                  <Radio defaultChecked type="radio" value="Delivery" name="ordermethod" id="delivery" variant="custom" className="radio" />
                   <label htmlFor="delivery" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Delivery</label>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Radio type="radio" value="Take a way" name="ordermethod" id="takeaway" variant="custom" className="radio"/>
+                  <Radio type="radio" value="Take a way" name="ordermethod" id="takeaway" variant="custom" className="radio" />
                   <label htmlFor="takeaway" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Take a way</label>
                 </div>
               </div>
@@ -142,15 +144,15 @@ export const Checkout = () => {
               <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">Payment method</legend>
               <div className="flex flex-col space-y-3.75 lg:space-y-10 my-7.5 lg:my-15">
                 <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio type="radio" value="Cash On Delivery" name="paymentmethod" id="cashondelivery" variant="custom" className="radio"/>
+                  <Radio defaultChecked type="radio" value="Cash On Delivery" name="paymentmethod" id="cashondelivery" variant="custom" className="radio" />
                   <label htmlFor="cashondelivery" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Cash On Delivery</label>
                 </div>
                 <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio type="radio" value="BCA Virtual Account" name="paymentmethod" id="bcavirtualaccount" variant="custom" className="radio"/>
+                  <Radio type="radio" value="BCA Virtual Account" name="paymentmethod" id="bcavirtualaccount" variant="custom" className="radio" />
                   <label htmlFor="bcavirtualaccount" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">BCA Virtual Account</label>
                 </div>
                 <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio type="radio" value="Credit Card" name="paymentmethod" id="creditcard" variant="custom" className="radio"/>
+                  <Radio type="radio" value="Credit Card" name="paymentmethod" id="creditcard" variant="custom" className="radio" />
                   <label htmlFor="creditcard" className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut">Credit Card</label>
                 </div>
               </div>

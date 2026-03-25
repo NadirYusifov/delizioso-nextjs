@@ -15,7 +15,6 @@ import {
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export const OrderList = () => {
-
   const router = useRouter();
   const dispatch = useAppDispatch();
   const items = useAppSelector(selectCartItems);
@@ -37,7 +36,7 @@ export const OrderList = () => {
 
   return (
     <div className="flex ml-5 p-5">
-      <div>
+      <div className="w-85.75">
         <article className="text-center">
           <h1 className="bg-indigo-velvet font-popins font-semibold text-[1.875rem] leading-[100%] text-white rounded-[1.25rem] py-8">
             Order list
@@ -92,7 +91,7 @@ export const OrderList = () => {
             </h2>
           </article>
           <div className="flex items-center gap-x-2">
-            <Input type="text" className="text-blue-bell h-12.5 lg:h-16 text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
+            <Input type="text" className="w-full text-blue-bell h-12.5 lg:h-16 text-[1.25rem] text-center leading-[100%] font-popins uppercase" />
             <Button
               variant="default"
               className="bg-blue-bell h-12.5 lg:h-16 py-7 px-5 text-[1.575rem] text-white rounded-[0.938rem]"

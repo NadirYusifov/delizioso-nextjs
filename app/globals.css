@@ -31,9 +31,3 @@
     height: 60dvh;
   }
 }
-
-@layer base {
-  .PhoneInputInput {
-    @apply bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25
-  }
-}

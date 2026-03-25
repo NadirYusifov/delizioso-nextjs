@@ -13,7 +13,7 @@ export interface CartState {
 
 // ==================================
 const initialState: CartState = {
-  items: [],
+  items: typeof window !== "undefined" ? JSON.parse(sessionStorage.getItem("cart_foods") || "[]") : [],
   isOpen: false,
 };
 
@@ -27,14 +27,16 @@ const cartSlice = createSlice({
       );
 
       if (existing) {
-        if(existing.quantity < 10) existing.quantity += 1 ;
+        if (existing.quantity < 10) existing.quantity += 1;
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
+        sessionStorage.setItem("cart_foods", JSON.stringify(state.items))
       }
     },
 
     removeFromCart: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      sessionStorage.removeItem("cart_foods")
     },
 
     updateQuantity: (state, action) => {
@@ -51,10 +53,11 @@ const cartSlice = createSlice({
 
     incrementQuantity: (state, action) => {
       const itemFood = state.items.find((item) => item.id === action.payload);
-       
+
       if (!itemFood) return
-      
+
       if (itemFood.quantity < 10) itemFood.quantity += 1;
+      sessionStorage.setItem("cart_foods", JSON.stringify(state.items))
     },
 
     decrementQuantity: (state, action) => {
@@ -67,14 +70,13 @@ const cartSlice = createSlice({
       } else {
         itemFood.quantity -= 1;
       }
+      
+      sessionStorage.setItem("cart_foods", JSON.stringify(state.items))
     },
 
     clearCart: (state) => {
       state.items = [];
-    },
-    setCartItems: (state, action) => {
-      state.items = action.payload || [];
-    },
+    }
   },
 });
 
@@ -84,8 +86,7 @@ export const {
   updateQuantity,
   incrementQuantity,
   decrementQuantity,
-  clearCart,
-  setCartItems,
+  clearCart
 } = cartSlice.actions;
 
 export const selectCartItems = (state: RootState) => state.cart.items;
