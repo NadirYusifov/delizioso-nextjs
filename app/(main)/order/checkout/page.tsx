@@ -1,4 +1,4 @@
-import { Checkout } from '@/pages/orderonline/checkout/[[...index]]'
+import { Checkout } from '@/pages/orderonline/checkout'
 import React from 'react'
 
 export default function CheckoutPage() {

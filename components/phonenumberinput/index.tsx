@@ -1,16 +1,21 @@
-import { useState } from "react";
+'use client'
+
+// import { useState } from "react";
 // import "@/components/phonenumberinput/style.css";
 import "react-phone-number-input/style.css";
-import Input from "react-phone-number-input";
+import PhoneNumberInput from "react-phone-number-input";
+import { useField } from "formik";
 
-export const PhoneInput = () => {
-  const [value, setValue] = useState();
+export const PhoneInput = ({ ...props }) => {
+    // const [value, setValue] = useState();
+    const [field, meta, helpers] = useField(props.name);
 
-  return (
-    <>
-      <style>
-        {`
+    return (
+        <>
+            <style>
+                {`
             .PhoneInput {
+                height: 100%
                 position: relative;
             }
                 
@@ -107,16 +112,18 @@ export const PhoneInput = () => {
               }
             }
         `}
-      </style>
+            </style>
 
-      <Input
-        international
-        placeholder="Enter your phone"
-        defaultCountry="DE"
-        countryCallingCodeEditable={false}
-        value={value}
-        onChange={() => setValue}
-      />
-    </>
-  );
+            <PhoneNumberInput
+                {...field}
+                {...props}
+                international
+                placeholder="Enter your phone"
+                defaultCountry="DE"
+                countryCallingCodeEditable={false}
+                value={field.value}
+                onChange={(values) => helpers.setValue(values)}
+                />
+        </>
+    );
 };
