@@ -14,7 +14,7 @@ import { MouseEvent, useEffect } from "react";
 import "leaflet-geosearch/dist/geosearch.css";
 import { Subtract } from "@/common/icon/subtract";
 import { FormikProvider, useFormik } from "formik";
-import { toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import { PhoneInput } from "@/components/phonenumberinput";
 // import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
@@ -165,7 +165,7 @@ export const Checkout = () => {
                 Order data
               </legend>
               <div className="my-7.5 lg:my-15">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-center">
                   <div>
                     <Input
                       className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25"
@@ -200,19 +200,11 @@ export const Checkout = () => {
                   </div>
                   {/* <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="" placeholder="Phone number" /> */}
                   {/* <PhoneInput className="" placeholder="Enter your phone number" value={value} onChange={() => setValue}/> */}
-                    <div>
                       <PhoneInput
                         name="phone"
                         onBlur={formik.handleBlur}
                         value={formik.values.phone}
                       />
-                    {formik.errors.lastname && formik.touched.lastname && (
-                      <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
-                        {formik.errors.lastname}
-                      </p>
-                    )}
-                    </div>
-                    
                   <div>
                     <Input
                       className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25"
@@ -470,12 +462,9 @@ export const Checkout = () => {
             </fieldset>
           </form>
          </FormikProvider>
-          
-          
-          
         </div>
       </div>
-      <ToastContainer position="top-center" pauseOnHover draggable stacked />
+      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss transition={Slide} pauseOnHover draggable stacked />
     </section>
   );
 };

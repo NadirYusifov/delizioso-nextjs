@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { object, string } from "yup";
-import { Button } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import LoginImage from "@/public/authassets/login1.png";
 import GoogleImage from "@/public/authassets/googlelogo.svg";
 import { Lock, LockOpen } from "lucide-react";
+import { Button } from "@/common/button";
 
 export default function LoginSection() {
   const [showpsw, setShowPsw] = useState(false);
@@ -42,8 +42,8 @@ export default function LoginSection() {
   });
 
   return (
-    <section className="h-screen">
-      <div className="relative w-full h-screen grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center">
+    <section className="h-dvh">
+      <div className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center">
         <div className="container">
           <div>
             <h3 className="text-[50px] font-bold leading-[100%]">Login</h3>
@@ -125,11 +125,12 @@ export default function LoginSection() {
                   onClick={notify}
                   disabled={!formik.values.toggle}
                   type="submit"
-                  className={`text-[16px] bg-dark-orange text-white !p-4 rounded-lg leading-[100%] font-medium normal-case ${formik.values.toggle ? "cursor-pointer opacity-100" : "cursor-not-allowed opacity-30"}`}
+                  className={`text-[16px] bg-dark-orange text-white p-4 rounded-lg leading-[100%] font-medium normal-case ${formik.values.toggle ? "cursor-pointer opacity-100" : "cursor-not-allowed opacity-30"}`}
                 >
                   Log in
                 </Button>
                 <Button
+                  variant="outline"
                   type="submit"
                   className="border-solid text-[16px] border-2 border-irish-coffee text-medium-roast rounded-lg p-4 mt-4 leading-[100%] normal-case"
                 >
@@ -146,7 +147,7 @@ export default function LoginSection() {
             </div>
           </form>
         </div>
-        <div className="w-full h-screen absolute right-0 overflow-hidden hidden lg:block -z-10">
+        <div className="w-full h-screen lg:block">
           <Image
             className="w-full"
             src={LoginImage}

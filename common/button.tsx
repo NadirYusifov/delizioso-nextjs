@@ -4,6 +4,7 @@ import { MouseEvent } from "react";
 type ButtonVariants = "primary" | "secondary" | "outline" | "default";
 
 interface ButtonProps {
+  disabled?: boolean;
   children?: React.ReactNode
   variant?: ButtonVariants;
   className?: string;

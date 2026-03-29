@@ -5,6 +5,11 @@
 import "react-phone-number-input/style.css";
 import PhoneNumberInput from "react-phone-number-input";
 import { useField } from "formik";
+// import { forwardRef } from "react";
+
+// interface CustomInputProps {
+//     type: "tel";
+// }
 
 export const PhoneInput = ({ ...props }) => {
     // const [value, setValue] = useState();
@@ -15,7 +20,7 @@ export const PhoneInput = ({ ...props }) => {
             <style>
                 {`
             .PhoneInput {
-                height: 100%
+                height: 3.125rem;
                 position: relative;
             }
                 
@@ -23,7 +28,6 @@ export const PhoneInput = ({ ...props }) => {
                 width: 100%;
                 height: 3.125rem;
                 background-color: #fafaf9;
-                
                 border-radius: 10px;
                 color: #311f09;
                 font-family: Popins, sans-serif;
@@ -82,30 +86,34 @@ export const PhoneInput = ({ ...props }) => {
             }
 
             @media screen and (width >= 64rem) {
-              .PhoneInputInput {
+                .PhoneInput {
+                  height: 6.25rem;
+                }
+
+                .PhoneInputInput {
                   height: 6.25rem;
                   border-radius: 20px;
                   font-size: 25px;
                   padding: 0 0 0 200px;
-            }
-              .PhoneInputCountry {
+                }
+                .PhoneInputCountry {
                   width: 152px;
                   height: 70px;
                   border-radius: 20px;
-              }
+                }
 
-              .PhoneInputCountrySelectArrow {
+                .PhoneInputCountrySelectArrow {
                   width: 15px;
                   height: 15px;
                   margin-left: 20px;
-              }
+                }
 
-              .PhoneInputCountryIconImg {
+                .PhoneInputCountryIconImg {
                   width: 48px;
                   height: 48px;
-              }
+                }
               
-              .PhoneInputCountryIcon {
+                .PhoneInputCountryIcon {
                   width: 48px;
                   height: 48px;
                   border-radius: 100%;
@@ -114,16 +122,19 @@ export const PhoneInput = ({ ...props }) => {
         `}
             </style>
 
-            <PhoneNumberInput
-                {...field}
-                {...props}
-                international
-                placeholder="Enter your phone"
-                defaultCountry="DE"
-                countryCallingCodeEditable={false}
-                value={field.value}
-                onChange={(values) => helpers.setValue(values)}
+            <div>
+                <PhoneNumberInput
+                    {...field}
+                    {...props}
+                    international
+                    placeholder="Enter your phone"
+                    defaultCountry="DE"
+                    countryCallingCodeEditable={false}
+                    value={field.value}
+                    onChange={(values) => helpers.setValue(values)}
                 />
+                {meta.error && meta.touched && <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{meta.error}</p>}
+            </div>
         </>
     );
 };

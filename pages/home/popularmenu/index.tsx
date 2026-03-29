@@ -3,12 +3,12 @@
 import { data } from "@/data/menu";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
-import { CategoryTabs } from "@/components/categorytabs"; 
+import { CategoryTabs } from "@/components/categorytabs";
 import { PaginationComponents } from "@/components/pagination";
 
 const ITEMS_PER_PAGE = 6;
 
-export default function PopularMenu({ title }: {title?: string}) {
+export default function PopularMenu({ title }: { title?: string }) {
   const [page, setPage] = useState<number>(1);
   const [selectedCategory, setSelectedCategory] = useState<string>("All category");
 
@@ -28,6 +28,12 @@ export default function PopularMenu({ title }: {title?: string}) {
   const handlePageChange = (_: ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
+
+
+  const handleCategoryTab = () => {
+    const menuCategoryScroll = document.querySelector(".category-tab")
+    menuCategoryScroll?.scrollIntoView({ behavior: "smooth", block: "center" })
+  }
 
   return (
     <section className="my-28">
@@ -63,13 +69,15 @@ export default function PopularMenu({ title }: {title?: string}) {
         </div>
         <div className="mt-20">
           <PaginationComponents
+            page={page}
             size="large"
             shape="rounded"
             count={count}
-            defaultPage={startIndex}
+            defaultPage={page}
             siblingCount={0}
             boundaryCount={1}
             onChange={handlePageChange}
+            onClick={handleCategoryTab}
           />
         </div>
       </div>

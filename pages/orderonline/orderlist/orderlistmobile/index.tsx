@@ -29,7 +29,7 @@ export const OrderListMobile = ({ onClose }: OrderListMobileProps) => {
       <div className="py-22 w-full h-full bg-white overflow-auto">
         <div className="bg-indigo-velvet py-5" onClick={onClose}>
           <div className="container px-4 mx-auto grid grid-cols-3">
-            <Button variant="default" className="w-5 h-5 px-5 py-5 bg-white rounded-full cursor-pointer flex items-center justify-center">
+            <Button variant="default" className="w-10 h-10 rounded-full flex items-center justify-center">
               <Arrow stroke="#311f09"/>
             </Button>
             <article className="text-center flex items-center justify-center">

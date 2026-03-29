@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Button, Slide } from "@mui/material";
-import { useFormik } from "formik";
-import { IoEye, IoEyeOff } from "react-icons/io5";
-import { object, string } from "yup";
-import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
-import LoginImage from "../../public/login1.png";
-import GoogleImage from "../../public/googlelogo.svg";
 import Image from "next/image";
+import { useState } from "react";
+import { useFormik } from "formik";
+import { Button } from "@mui/material";
+import { object, string } from "yup";
+import LoginImage from "@/public/authassets/login1.png";
+import GoogleImage from "@/public/authassets/googlelogo.svg";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 export default function SignUpSection() {
   const [showpsw, setShowPsw] = useState(false);
@@ -39,17 +38,17 @@ export default function SignUpSection() {
       toggle: false,
     },
     validationSchema: yupschema,
-    onSubmit: (values) => {},
+    onSubmit: (values) => { },
   });
 
   return (
-    <section>
-      <div className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center">
+    <section className="h-dvh">
+      <div className="w-full h-dvh grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center">
         <div className="container">
           <div>
             <h3 className="text-[50px] font-bold leading-[100%]">Sign Up</h3>
             <p className="text-[20px] text-irish-coffee pt-3 pb-10 leading-[200%] font-normal">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/login">
                 <span className="text-sky-500">Log in</span>
               </Link>
@@ -105,11 +104,11 @@ export default function SignUpSection() {
                 >
                   {showpsw ? (
                     <span>
-                      <IoEye />
+                      {/* <IoEye /> */}
                     </span>
                   ) : (
                     <span>
-                      <IoEyeOff />
+                      {/* <IoEyeOff /> */}
                     </span>
                   )}
                 </button>
@@ -157,18 +156,18 @@ export default function SignUpSection() {
             </div>
           </form>
         </div>
-        <div className="w-full h-screen absolute right-0 overflow-hidden hidden lg:block -z-10">
+        <div className="w-full h-dvh lg:block">
           <Image
             className="w-full"
             src={LoginImage}
-            width={900}
+            width={1000}
             height={900}
             quality={100}
             alt="signup-image"
           />
         </div>
       </div>
-      <ToastContainer position="top-center" pauseOnHover draggable stacked />
+      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss transition={Slide} pauseOnHover draggable stacked />
     </section>
   );
 }

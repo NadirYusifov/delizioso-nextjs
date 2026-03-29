@@ -6,6 +6,7 @@ type SizeType = "small" | "medium" | "large";
 type ShapeType = "circular" | "rounded" | undefined;
 
 interface PaginationProps {
+  page: number;
   count?: number | undefined;
   size?: SizeType | undefined;
   shape?: ShapeType | undefined;
@@ -13,6 +14,7 @@ interface PaginationProps {
   siblingCount?: number | undefined;
   boundaryCount?: number | undefined;
   onChange?: (event: ChangeEvent<unknown>, value: number) => void | undefined;
+  onClick?: (event: ChangeEvent<unknown>) => void | undefined;
 }
 
 const StyledPagination = styled(Pagination)(({ theme }) => ({
@@ -51,6 +53,7 @@ const StyledPagination = styled(Pagination)(({ theme }) => ({
 }));
 
 export const PaginationComponents = ({
+  page,
   count,
   size,
   shape,
@@ -58,10 +61,12 @@ export const PaginationComponents = ({
   boundaryCount,
   siblingCount,
   onChange,
+  onClick
 }: PaginationProps) => {
   return (
     <>
       <StyledPagination
+        page={page}
         count={count}
         size={size}
         shape={shape}
@@ -69,6 +74,7 @@ export const PaginationComponents = ({
         boundaryCount={boundaryCount}
         siblingCount={siblingCount}
         onChange={onChange}
+        onClick={onClick}
       />
     </>
   );

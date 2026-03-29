@@ -68,11 +68,19 @@ export default function Footer() {
                   Page
                 </h3>
                 <ul className="text-alabaster-grey text-[18px] md:text-[20px] font-normal leading-10 space-y-2">
-                  <li>Home</li>
-                  <li>Menu</li>
-                  <li>Order online</li>
+                  <Link href={"/"}>
+                    <li>Home</li>
+                  </Link>
+                  <Link href={"/menu"}>
+                    <li>Menu</li>
+                  </Link>
+                  <Link href={"/order"}>
+                    <li>Order online</li>
+                  </Link>
                   <li>Catering</li>
-                  <li>Reservation</li>
+                  <Link href={"/reservation"}>
+                    <li>Reservation</li>
+                  </Link>
                 </ul>
               </div>
 
