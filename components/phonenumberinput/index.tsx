@@ -1,18 +1,21 @@
-'use client'
+// ==============================
+/* 
+The validation integration from the react-phone-number-input package was used for the formik package. 
+This code use StackOverflow web site what used and question title: **How to friend Formik with react-phone-number-input lib?**
 
-// import { useState } from "react";
-// import "@/components/phonenumberinput/style.css";
+## Links:
+Link: https://stackoverflow.com/questions/72102634/how-to-friend-formik-with-react-phone-number-input-lib/
+Owners: AlexKor5 - [https://stackoverflow.com/users/14064568/alexkor5]
+        Rochdi Belhirch - [https://stackoverflow.com/users/14177960/rochdi-belhirch]
+*/
+
+"use client"
+
+import { useField } from "formik";
 import "react-phone-number-input/style.css";
 import PhoneNumberInput from "react-phone-number-input";
-import { useField } from "formik";
-// import { forwardRef } from "react";
-
-// interface CustomInputProps {
-//     type: "tel";
-// }
 
 export const PhoneInput = ({ ...props }) => {
-    // const [value, setValue] = useState();
     const [field, meta, helpers] = useField(props.name);
 
     return (
