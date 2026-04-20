@@ -17,6 +17,16 @@ const initialState: CartState = {
   isOpen: false,
 };
 
+// ==============================
+/* 
+This code use StackOverflow web site what used and question title: How to store and get Cart Items to localstorage with Redux?
+Link: https://stackoverflow.com/questions/74549639/how-to-store-and-get-cart-items-to-localstorage-with-redux/
+Owners: Mohit - [https://stackoverflow.com/users/14152125/mohit] - (asked and answered)
+        isherwood - [https://stackoverflow.com/users/1264804/isherwood] - (edited)
+
+Thanks!
+*/
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -79,6 +89,7 @@ const cartSlice = createSlice({
     }
   },
 });
+// ==============================
 
 export const {
   addToCart,
