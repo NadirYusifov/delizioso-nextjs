@@ -2,17 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { useFormik } from "formik";
-import { Button } from "@mui/material";
 import { object, string } from "yup";
 import LoginImage from "@/public/authassets/login1.png";
 import GoogleImage from "@/public/authassets/googlelogo.svg";
 import { Slide, toast, ToastContainer } from "react-toastify";
+import LogoDelizosoIcon from "@/public/logoassets/logodeliziosoicon.png";
+import { Button } from "@/common/button";
+import { Input } from "@/common/input";
+
+interface SignUpValues {
+  fullname: string;
+  email: string;
+  password: string;
+  toggle: boolean;
+}
 
 export default function SignUpSection() {
-  const [showpsw, setShowPsw] = useState(false);
-
   const yupschema = object().shape({
     fullname: string().required("Full Name is required"),
     email: string().email().required("Email is required"),
@@ -22,15 +28,20 @@ export default function SignUpSection() {
       .required("Password is required"),
   });
 
-  const notfify = () => {
-    if (formik.isValid) {
-      toast.success("Account created successfully");
-    } else {
-      toast.error("Account creation failed");
-    }
+  const handleSubmit = () => {
+    formik.validateForm().then((errors) => {
+      if (Object.keys(errors).length === 0) {
+        formik.submitForm();
+      } else {
+        toast.error("Please fill in all required fields!");
+        formik.setTouched({
+          fullname: true,
+        });
+      }
+    });
   };
 
-  const formik = useFormik({
+  const formik = useFormik<SignUpValues>({
     initialValues: {
       fullname: "",
       email: "",
@@ -38,134 +49,128 @@ export default function SignUpSection() {
       toggle: false,
     },
     validationSchema: yupschema,
-    onSubmit: (values) => { },
+    onSubmit: (values, actions) => {
+      toast.success("Account created successfully");
+      actions.setSubmitting(false);
+      actions.resetForm({ values: formik.initialValues });
+    },
   });
 
   return (
     <section className="h-dvh">
-      <div className="w-full h-dvh grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center">
-        <div className="container">
-          <div>
-            <h3 className="text-[50px] font-bold leading-[100%]">Sign Up</h3>
-            <p className="text-[20px] text-irish-coffee pt-3 pb-10 leading-[200%] font-normal">
-              Don&apos;t have an account?{" "}
-              <Link href="/login">
-                <span className="text-sky-500">Log in</span>
-              </Link>
-            </p>
-          </div>
+      <div className="relative m-9.75">
+        <picture className="inline">
+          <Image
+            src={LogoDelizosoIcon}
+            width={33}
+            height={33}
+            quality={100}
+            alt="Logo Delzioso Icon"
+          />
+        </picture>
+      </div>
+      <div className="flex items-center absolute top-0 right-0 left-0">
+        <div className="container px-4 mx-auto">
           <form onSubmit={formik.handleSubmit}>
-            <div className="flex flex-col relative space-y-4">
-              <div>
-                <input
-                  className={`w-full bg-infusion/15 p-4 border-none outline-none rounded-lg placeholder:text-grullo ${formik.errors.fullname && formik.touched.fullname ? "outline-red-500" : "outline-none"}`}
-                  id="fullname"
-                  name="fullname"
-                  placeholder="Full Name"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.errors.fullname && formik.touched.fullname ? (
-                  <p className="text-red-500 text-[14px] mt-2">
-                    {formik.errors.fullname}
-                  </p>
-                ) : null}
-              </div>
-              <div>
-                <input
-                  className={`w-full bg-infusion/15 p-4 border-none outline-none rounded-lg placeholder:text-grullo ${formik.errors.email && formik.touched.email ? "outline-red-500" : "outline-none"}`}
-                  id="email"
-                  name="email"
-                  type="email"
+            <fieldset className="flex flex-1 flex-col">
+              <legend className="font-raleway font-bold text-[50px] leading-[100%] mt-13">
+                Sign up
+              </legend>
+              <p className="text-deep-walnut font-popins font-normal text-[20px] leading-[200%] mb-15">
+                Don&apos;t have an account?{" "}
+                <Link className="text-sky-500 font-medium" href={"/login"}>
+                  Log in
+                </Link>
+              </p>
+              <div className="flex flex-col gap-y-10">
+                <div>
+                  <Input
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                    variant="outline"
+                    placeholder="Full name"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    type="text"
+                    name="fullname"
+                    value={formik.values.fullname}
+                  />
+                  {formik.errors.fullname && formik.touched.fullname && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
+                  )}
+                </div>
+                <div>
+                <Input
+                  className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                  variant="outline"
                   placeholder="Email address"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  type="email"
+                  value={formik.values.email}
                 />
-                {formik.errors.email && formik.touched.email ? (
-                  <p className="text-red-500 text-[14px] mt-2">
-                    {formik.errors.email}
-                  </p>
-                ) : null}
-              </div>
-              <div className="relative">
-                <input
-                  className={`w-full bg-infusion/15 p-4 border-none outline-none rounded-lg placeholder:text-grullo ${formik.errors.password && formik.touched.password ? "outline-red-500" : "outline-none"}`}
-                  id="password"
-                  name="password"
-                  type={showpsw ? "text" : "password"}
+                {formik.errors.email && formik.touched.email && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
+                  )}
+                </div>
+                <div>
+                <Input
+                  className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                  variant="outline"
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  type="password"
+                  value={formik.values.password}
                 />
-                <button
-                  type="button"
-                  className="text-[23px] absolute top-4 right-3 text-irish-coffee"
-                  onClick={() => setShowPsw(!showpsw)}
-                >
-                  {showpsw ? (
-                    <span>
-                      {/* <IoEye /> */}
-                    </span>
-                  ) : (
-                    <span>
-                      {/* <IoEyeOff /> */}
-                    </span>
+                {formik.errors.password && formik.touched.password && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
                   )}
-                </button>
-                {formik.errors.password && formik.touched.password ? (
-                  <p className="text-red-500 text-[14px] mt-2">
-                    {formik.errors.password}
-                  </p>
-                ) : null}
+                </div>
               </div>
-              <div className="text-[16px] flex items-center justify-between text-irish-coffee py-8">
-                <label>
-                  <input
-                    className="accent-dark-orange scale-125"
-                    name="toggle"
-                    type="checkbox"
-                    value="Rememberme"
-                    onChange={formik.handleChange}
-                  />
-                  <span className="ml-2 text-irish-coffee pl-2">
-                    Remember me
-                  </span>
+              <div className="flex items-center justify-between mt-10">
+                <label className="label text-deep-walnut text-[20px] font-normal font-popins leading-[200%] gap-x-5">
+                  <input type="checkbox" className="checkbox" />
+                  Remember me
                 </label>
-                <Link href="/">Forget Password?</Link>
-              </div>
-              <div className="flex flex-col">
-                <Button
-                  onClick={notfify}
-                  disabled={!formik.values.toggle}
-                  type="submit"
-                  className={`text-[16px] bg-dark-orange text-white p-4 rounded-lg leading-[100%] font-medium normal-case ${formik.values.toggle ? "cursor-pointer opacity-100" : "cursor-not-allowed opacity-20"}`}
+                <Link
+                  href={"*"}
+                  className="text-deep-walnut text-[20px] font-normal font-popins leading-[200%]"
                 >
-                  Sign up
+                  Forget Password?
+                </Link>
+              </div>
+              <div className="flex flex-col space-y-5 mt-10">
+                <Button
+                  onClick={handleSubmit}
+                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  variant="primary"
+                >
+                  Log in
                 </Button>
-                <Button className="border-solid text-[16px] border-2 border-irish-coffee text-medium-roast rounded-lg p-4 mt-4 leading-[100%] normal-case">
+                <Button
+                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  variant="outline"
+                >
                   <Image
-                    className="mr-2"
                     src={GoogleImage}
-                    width={25}
-                    height={25}
-                    alt="google-logo"
+                    width={36}
+                    height={36}
+                    quality={100}
+                    alt="Google Logo"
                   />
-                  Sign up with google
+                  Log in with google
                 </Button>
               </div>
-            </div>
+            </fieldset>
           </form>
         </div>
-        <div className="w-full h-dvh lg:block">
-          <Image
-            className="w-full"
-            src={LoginImage}
-            width={1000}
-            height={900}
-            quality={100}
-            alt="signup-image"
-          />
-        </div>
+        <Image
+          src={LoginImage}
+          width={1350}
+          height={100}
+          quality={100}
+          alt="Login Image"
+        />
       </div>
       <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss transition={Slide} pauseOnHover draggable stacked />
     </section>
