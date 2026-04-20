@@ -1,3 +1,10 @@
+/* 
+This code use variant method which shadcn/ui platform
+Website: https://ui.shadcn.com/docs/components/radix/textarea
+Github: https://github.com/shadcn-ui/ui
+
+Thanks!
+*/
 
 import { styled } from "@mui/system";
 import Rating from "@mui/material/Rating";

@@ -1,3 +1,11 @@
+/* 
+This code use variant method which shadcn/ui platform
+Website: https://ui.shadcn.com/
+Github: https://github.com/shadcn-ui/ui
+
+Thanks!
+*/
+
 import { cn } from "@/lib/utils";
 import { ChangeEvent } from "react";
 
