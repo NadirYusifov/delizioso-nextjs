@@ -14,9 +14,9 @@ import { MouseEvent, useEffect } from "react";
 import "leaflet-geosearch/dist/geosearch.css";
 import { Subtract } from "@/common/icon/subtract";
 import { FormikProvider, useFormik } from "formik";
-import { Slide, toast, ToastContainer } from "react-toastify";
 import { PhoneInput } from "@/components/phonenumberinput";
 // import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 interface ContactFormValues {
