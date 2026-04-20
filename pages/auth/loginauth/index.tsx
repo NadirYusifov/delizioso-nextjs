@@ -2,20 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import { Input } from "@/common/input";
 import { Button } from "@/common/button";
-import { Lock, LockOpen } from "lucide-react";
-import LogoDelizosoIcon from "@/public/logoassets/logodeliziosoicon.png"
-import { toast, ToastContainer } from "react-toastify";
+import LogoDelizosoIcon from "@/public/logoassets/logodeliziosoicon.png";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import LoginImage from "@/public/authassets/login1.png";
 import GoogleImage from "@/public/authassets/googlelogo.svg";
 
-export default function LoginSection() {
-  const [showpsw, setShowPsw] = useState(false);
+interface LoginAuthValues {
+  email: string;
+  password: string;
+  toggle: boolean;
+}
 
+export default function LoginSection() {
   const yupschema = object().shape({
     email: string().email().required("Email is required"),
     password: string()
@@ -23,23 +25,32 @@ export default function LoginSection() {
       .required("Password is required"),
   });
 
-  const notify = () => {
-    if (formik.isValid) {
-      toast.success("Account created successfully!");
-    } else {
-      toast.error("Account creation failed!");
-    }
+  const handleSubmit = () => {
+    formik.validateForm().then((errors) => {
+      if (Object.keys(errors).length === 0) {
+        formik.submitForm();
+      } else {
+        toast.error("Please fill in all required fields!");
+        formik.setTouched({
+          email: true,
+          password: true,
+          toggle: true,
+        });
+      }
+    });
   };
 
-  const formik = useFormik({
+  const formik = useFormik<LoginAuthValues>({
     initialValues: {
       email: "",
       password: "",
       toggle: false,
     },
     validationSchema: yupschema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, actions) => {
+      toast.success("Account created successfully");
+      actions.setSubmitting(false);
+      actions.resetForm({ values: formik.initialValues });
     },
   });
 
@@ -47,33 +58,119 @@ export default function LoginSection() {
     <section className="h-dvh">
       <div className="relative m-9.75">
         <picture className="inline">
-          <Image src={LogoDelizosoIcon} width={33} height={33} quality={100} alt="Logo Delzioso Icon"/>
+          <Image
+            src={LogoDelizosoIcon}
+            width={33}
+            height={33}
+            quality={100}
+            alt="Logo Delzioso Icon"
+          />
         </picture>
       </div>
       <div className="flex items-center absolute top-0 right-0 left-0">
         <div className="container px-4 mx-auto">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <fieldset className="flex flex-1 flex-col">
-              <legend className="font-raleway font-bold text-[50px] leading-[100%] mt-13">Login</legend>
-              <p className="text-deep-walnut font-popins font-normal text-[20px] leading-[200%]">Don&apos;t have an account? <Link className="text-sky-500 font-medium" href={"/signup"}>Sign up</Link></p>
+              <legend className="font-raleway font-bold text-[50px] leading-[100%] mt-13">
+                Log in
+              </legend>
+              <p className="text-deep-walnut font-popins font-normal text-[20px] leading-[200%] mb-15">
+                Don&apos;t have an account?{" "}
+                <Link className="text-sky-500 font-medium" href={"/signup"}>
+                  Sign up
+                </Link>
+              </p>
               <div className="flex flex-col gap-y-10">
-              <Input className="h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas" variant="outline" placeholder="Email address" />
-              <Input className="h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas" variant="outline" placeholder="Password" />
+                <div>
+                  <Input
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                    variant="outline"
+                    placeholder="Email address"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    type="email"
+                    value={formik.values.email}
+                  />
+                  {formik.errors.email && formik.touched.email && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                      {formik.errors.email}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Input
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                    variant="outline"
+                    placeholder="Password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    type="password"
+                    value={formik.values.password}
+                  />
+                  {formik.errors.password && formik.touched.password && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                      {formik.errors.password}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <label className="label text-deep-walnut text-[20px] font-normal font-popins leading-[200%]">
-                <input type="checkbox" className="checkbox" />
+              <div className="flex items-center justify-between mt-10">
+                <label className="label text-deep-walnut text-[20px] font-normal font-popins leading-[200%] gap-x-5">
+                  <input type="checkbox" className="checkbox" />
                   Remember me
                 </label>
-                <Link href={"*"} className="text-deep-walnut text-[20px] font-normal font-popins leading-[200%]">Forget Password?</Link>
+                <Link
+                  href={"*"}
+                  className="text-deep-walnut text-[20px] font-normal font-popins leading-[200%]"
+                >
+                  Forget Password?
+                </Link>
               </div>
-              <Button className="rounded-[10px] font-medium font-popins text-[20px] leading-[100%]" variant="primary">Log in</Button>
-              <Button className="rounded-[10px] font-medium font-popins text-[20px] leading-[100%]" variant="outline"><Image src={GoogleImage} width={36} height={36} quality={100} alt="Google Logo"/>Log in with google</Button>
+              <div className="flex flex-col space-y-5 mt-10">
+                <Button
+                  onClick={handleSubmit}
+                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  variant="primary"
+                >
+                  Log in
+                </Button>
+                <Button
+                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  variant="outline"
+                >
+                  <Image
+                    src={GoogleImage}
+                    width={36}
+                    height={36}
+                    quality={100}
+                    alt="Google Logo"
+                  />
+                  Log in with google
+                </Button>
+              </div>
             </fieldset>
           </form>
         </div>
-        <Image src={LoginImage} width={1350} height={100} quality={100} alt="Login Image" />
+        <Image
+          src={LoginImage}
+          width={1350}
+          height={100}
+          quality={100}
+          alt="Login Image"
+        />
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        transition={Slide}
+        pauseOnHover
+        draggable
+        stacked
+      />
     </section>
   );
 }
