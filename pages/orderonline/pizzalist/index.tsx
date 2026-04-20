@@ -1,16 +1,18 @@
+import { Foods } from "@/data/menu";
 import FoodCard from "@/components/foodcard";
 import { ChangeEvent, useState } from "react";
 import { PaginationComponents } from "@/components/pagination";
-import { Foods } from "@/data/menu";
 
 const ITEMS_PER_PAGE = 9;
 
 export const PizzaList = ({
     pizzaCount,
     filteredpizzaData,
+    handleCategoryTab
 }: {
     pizzaCount: number;
     filteredpizzaData: Foods[];
+    handleCategoryTab: () => void
 }) => {
     const [page, setPage] = useState<number>(1);
 
@@ -44,13 +46,15 @@ export const PizzaList = ({
 
             <div className="mt-20">
                 <PaginationComponents
+                    page={page}
                     size="large"
                     shape="rounded"
                     count={pizzaCount}
-                    defaultPage={startIndex}
+                    defaultPage={page}
                     siblingCount={0}
                     boundaryCount={1}
                     onChange={handlePageChange}
+                    onClick={handleCategoryTab}
                 />
             </div>
         </section>
