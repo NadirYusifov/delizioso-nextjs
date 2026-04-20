@@ -29,11 +29,18 @@ export default function PopularMenu({ title }: { title?: string }) {
     setPage(value);
   };
 
-
+  // ==============================
+  /* 
+    This code used MDN web site which "scrollIntoView()" use method
+    Link: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+    
+    Thanks!
+  */
   const handleCategoryTab = () => {
     const menuCategoryScroll = document.querySelector(".category-tab")
     menuCategoryScroll?.scrollIntoView({ behavior: "smooth", block: "center" })
   }
+  // ==============================
 
   return (
     <section className="my-28">
@@ -64,7 +71,12 @@ export default function PopularMenu({ title }: { title?: string }) {
               ))}
             </div>
           ) : (
-            <p>No items found in this category.</p>
+            <div className="flex flex-col justify-center">
+                      <article className="text-center">
+                        <span className="text-7xl">🍽️</span>
+                        <p className="text-[1.563rem] leading-[200%]">No items found in this category.</p>
+                      </article>
+                    </div>
           )}
         </div>
         <div className="mt-20">
