@@ -97,8 +97,12 @@ export const Checkout = () => {
 
   // Validate schema
   const yupSchema = object().shape({
-    firstname: string().min(2, "Firstname must be at least 2 characters").required("Firstname is required!"),
-    lastname: string().min(2, "Lastname must be at least 2 characters").required("Lastname is required!"),
+    firstname: string()
+      .min(2, "Firstname must be at least 2 characters")
+      .required("Firstname is required!"),
+    lastname: string()
+      .min(2, "Lastname must be at least 2 characters")
+      .required("Lastname is required!"),
     email: string()
       .email("Email must be a valid email!")
       .required("Email is required!")
@@ -152,240 +156,240 @@ export const Checkout = () => {
             <Arrow stroke="#fff" />
           </Button>
           <article className="text-center grow">
-            <h1 className="text-dark-coffee font-tinos font-bold leading-[100%] text-[30px] lg:text-[5rem]">
+            <h1 className="text-dark-coffee font-tinos font-bold leading-[100%] text-[1.875rem] lg:text-[5rem]">
               Checkout
             </h1>
           </article>
         </div>
         <div className="mt-10 lg:mt-60">
-         <FormikProvider value={formik}>
-          <form onSubmit={formik.handleSubmit}>
-            <fieldset>
-              <legend className="font-semibold lg:font-medium text-[14px] lg:text-[30px] leading-[100%] font-popins">
-                Order data
-              </legend>
-              <div className="my-7.5 lg:my-15">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-center">
-                  <div>
-                    <Input
-                      className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25"
-                      type="text"
-                      name="firstname"
-                      placeholder="First name"
-                      onBlur={formik.handleBlur}
-                      onChange={formik.handleChange}
-                      value={formik.values.firstname}
-                    />
-                    {formik.errors.firstname && formik.touched.firstname && (
-                      <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
-                        {formik.errors.firstname}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <Input
-                      className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25"
-                      type="text"
-                      name="lastname"
-                      placeholder="Last name"
-                      onBlur={formik.handleBlur}
-                      onChange={formik.handleChange}
-                      value={formik.values.lastname}
-                    />
-                    {formik.errors.lastname && formik.touched.lastname && (
-                      <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
-                        {formik.errors.lastname}
-                      </p>
-                    )}
-                  </div>
-                  {/* <Input className="text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25" type="text" name="" placeholder="Phone number" /> */}
-                  {/* <PhoneInput className="" placeholder="Enter your phone number" value={value} onChange={() => setValue}/> */}
-                      <PhoneInput
-                        name="phone"
+          <FormikProvider value={formik}>
+            <form onSubmit={formik.handleSubmit}>
+              <fieldset>
+                <legend className="font-semibold lg:font-medium text-[0.875rem] lg:text-[1.875rem] leading-[100%] font-popins">
+                  Order data
+                </legend>
+                <div className="my-7.5 lg:my-15">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-center">
+                    <div>
+                      <Input
+                        className="w-full text-dark-coffee font-popins font-normal text-[0.746rem] lg:text-[1.563rem] leading-[110%] h-12.5 lg:h-25"
+                        type="text"
+                        name="firstname"
+                        placeholder="First name"
                         onBlur={formik.handleBlur}
-                        value={formik.values.phone}
+                        onChange={formik.handleChange}
+                        value={formik.values.firstname}
                       />
+                      {formik.errors.firstname && formik.touched.firstname && (
+                        <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                          {formik.errors.firstname}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <Input
+                        className="w-full text-dark-coffee font-popins font-normal text-[0.746rem] lg:text-[1.563rem] leading-[110%] h-12.5 lg:h-25"
+                        type="text"
+                        name="lastname"
+                        placeholder="Last name"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.lastname}
+                      />
+                      {formik.errors.lastname && formik.touched.lastname && (
+                        <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                          {formik.errors.lastname}
+                        </p>
+                      )}
+                    </div>
+                    {/* <Input className="text-dark-coffee font-popins font-normal text-[0.746rem] lg:text-[1.563rem] leading-[110%] h-12.5 lg:h-25" type="text" name="" placeholder="Phone number" /> */}
+                    {/* <PhoneInput className="" placeholder="Enter your phone number" value={value} onChange={() => setValue}/> */}
+                    <PhoneInput
+                      name="phone"
+                      onBlur={formik.handleBlur}
+                      value={formik.values.phone}
+                    />
+                    <div>
+                      <Input
+                        className="w-full text-dark-coffee font-popins font-normal text-[0.746rem] lg:text-[1.563rem] leading-[110%] h-12.5 lg:h-25"
+                        type="text"
+                        name="email"
+                        placeholder="Email address"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                      />
+                      {formik.errors.email && formik.touched.email && (
+                        <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                          {formik.errors.email}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                   <div>
-                    <Input
-                      className="w-full text-dark-coffee font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] h-12.5 lg:h-25"
-                      type="text"
-                      name="email"
-                      placeholder="Email address"
+                    <Textarea
+                      rows={12}
+                      className="w-full col-span-2 font-popins font-normal text-[0.746rem] lg:text-[1.563rem] leading-[110%] mt-5 lg:mt-8"
+                      name="note"
+                      placeholder="Note"
                       onBlur={formik.handleBlur}
                       onChange={formik.handleChange}
-                      value={formik.values.email}
+                      value={formik.values.note}
                     />
-                    {formik.errors.email && formik.touched.email && (
+                    {formik.errors.note && formik.touched.note && (
                       <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
-                        {formik.errors.email}
+                        {formik.errors.note}
                       </p>
                     )}
                   </div>
                 </div>
-                <div>
-                  <Textarea
-                    rows={12}
-                    className="w-full col-span-2 font-popins font-normal text-[11.93px] lg:text-[25px] leading-[110%] mt-5 lg:mt-8"
-                    name="note"
-                    placeholder="Note"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                    value={formik.values.note}
-                  />
-                  {formik.errors.note && formik.touched.note && (
-                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
-                      {formik.errors.note}
-                    </p>
-                  )}
+                <legend className="text-[0.875rem] lg:text-[1.875rem] font-medium leading-[110%] font-popins">
+                  Order time
+                </legend>
+                <div className="flex space-x-10 my-7.5 lg:my-15">
+                  <div className="flex items-center gap-2">
+                    <Radio
+                      defaultChecked
+                      type="radio"
+                      value="Order now"
+                      name="ordertime"
+                      id="ordernow"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="ordernow"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Order now
+                    </label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Radio
+                      type="radio"
+                      value="Order later"
+                      name="ordertime"
+                      id="orderlater"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="orderlater"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Order later
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">
-                Order time
-              </legend>
-              <div className="flex space-x-10 my-7.5 lg:my-15">
-                <div className="flex items-center gap-2">
-                  <Radio
-                    defaultChecked
-                    type="radio"
-                    value="Order now"
-                    name="ordertime"
-                    id="ordernow"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="ordernow"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Order now
-                  </label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Radio
-                    type="radio"
-                    value="Order later"
-                    name="ordertime"
-                    id="orderlater"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="orderlater"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Order later
-                  </label>
-                </div>
-              </div>
 
-              <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">
-                Order method
-              </legend>
-              <div className="flex space-x-10 my-7.5 lg:my-15">
-                <div className="flex items-center gap-2">
-                  <Radio
-                    defaultChecked
-                    type="radio"
-                    value="Delivery"
-                    name="ordermethod"
-                    id="delivery"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="delivery"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Delivery
-                  </label>
+                <legend className="text-[0.875rem] lg:text-[1.875rem] font-medium leading-[110%] font-popins">
+                  Order method
+                </legend>
+                <div className="flex space-x-10 my-7.5 lg:my-15">
+                  <div className="flex items-center gap-2">
+                    <Radio
+                      defaultChecked
+                      type="radio"
+                      value="Delivery"
+                      name="ordermethod"
+                      id="delivery"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="delivery"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Delivery
+                    </label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Radio
+                      type="radio"
+                      value="Take a way"
+                      name="ordermethod"
+                      id="takeaway"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="takeaway"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Take a way
+                    </label>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Radio
-                    type="radio"
-                    value="Take a way"
-                    name="ordermethod"
-                    id="takeaway"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="takeaway"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Take a way
-                  </label>
-                </div>
-              </div>
 
-              <legend className="text-[14px] lg:text-[30px] font-medium leading-[110%] font-popins">
-                Payment method
-              </legend>
-              <div className="flex flex-col space-y-3.75 lg:space-y-10 my-7.5 lg:my-15">
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio
-                    defaultChecked
-                    type="radio"
-                    value="Cash On Delivery"
-                    name="paymentmethod"
-                    id="cashondelivery"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="cashondelivery"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Cash On Delivery
-                  </label>
+                <legend className="text-[0.875rem] lg:text-[1.875rem] font-medium leading-[110%] font-popins">
+                  Payment method
+                </legend>
+                <div className="flex flex-col space-y-3.75 lg:space-y-10 my-7.5 lg:my-15">
+                  <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[0.625rem] lg:rounded-[1.25rem] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
+                    <Radio
+                      defaultChecked
+                      type="radio"
+                      value="Cash On Delivery"
+                      name="paymentmethod"
+                      id="cashondelivery"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="cashondelivery"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Cash On Delivery
+                    </label>
+                  </div>
+                  <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[0.625rem] lg:rounded-[1.25rem] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
+                    <Radio
+                      type="radio"
+                      value="BCA Virtual Account"
+                      name="paymentmethod"
+                      id="bcavirtualaccount"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="bcavirtualaccount"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      BCA Virtual Account
+                    </label>
+                  </div>
+                  <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[0.625rem] lg:rounded-[1.25rem] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
+                    <Radio
+                      type="radio"
+                      value="Credit Card"
+                      name="paymentmethod"
+                      id="creditcard"
+                      variant="custom"
+                      className="radio"
+                    />
+                    <label
+                      htmlFor="creditcard"
+                      className="text-[0.75rem] lg:text-[1.563rem] font-popins leading-[100%] font-normal text-deep-walnut"
+                    >
+                      Credit Card
+                    </label>
+                  </div>
                 </div>
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio
-                    type="radio"
-                    value="BCA Virtual Account"
-                    name="paymentmethod"
-                    id="bcavirtualaccount"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="bcavirtualaccount"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    BCA Virtual Account
-                  </label>
-                </div>
-                <div className="w-full lg:w-135 bg-dust-grey/10 rounded-[10px] lg:rounded-[20px] flex items-center gap-2 px-6.25 py-3.25 lg:py-7 lg:px-13.5">
-                  <Radio
-                    type="radio"
-                    value="Credit Card"
-                    name="paymentmethod"
-                    id="creditcard"
-                    variant="custom"
-                    className="radio"
-                  />
-                  <label
-                    htmlFor="creditcard"
-                    className="text-[12px] lg:text-[25px] font-popins leading-[100%] font-normal text-deep-walnut"
-                  >
-                    Credit Card
-                  </label>
-                </div>
-              </div>
 
-              <legend className="font-popins font-medium text-[14px] lg:text-[30px] leading-[110%] my-7.5 lg:my-15">
-                Shipping address
-              </legend>
-              <div className="grid grid-cols-4 lg:grid-cols-7 gap-x-2.5 lg:gap-x-10.5 items-center">
-                <Input
-                  className="bg-dust-grey/10 form w-full h-12.5 lg:h-full font-normal text-deep-walnut placeholder:text-deep-walnut text-[12px] lg:text-[25px] col-span-3 lg:col-span-6 lg:py-10 lg:px-18.25 leading-[100%]"
-                  type="text"
-                  placeholder="Please type your address"
-                  variant="outline"
-                // value={searchInput}
-                // onChange={handleSearchInput}
-                />
-                {/* Arama sonuçları dropdown */}
-                {/* {searchResults.length > 0 && (
+                <legend className="font-popins font-medium text-[0.875rem] lg:text-[1.875rem] leading-[110%] my-7.5 lg:my-15">
+                  Shipping address
+                </legend>
+                <div className="grid grid-cols-4 lg:grid-cols-7 gap-x-2.5 lg:gap-x-10.5 items-center">
+                  <Input
+                    className="bg-dust-grey/10 form w-full h-12.5 lg:h-full font-normal text-deep-walnut placeholder:text-deep-walnut text-[0.75rem] lg:text-[1.563rem] col-span-3 lg:col-span-6 lg:py-10 lg:px-18.25 leading-[100%]"
+                    type="text"
+                    placeholder="Please type your address"
+                    variant="outline"
+                    // value={searchInput}
+                    // onChange={handleSearchInput}
+                  />
+                  {/* Arama sonuçları dropdown */}
+                  {/* {searchResults.length > 0 && (
                   <ul className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md mt-2 max-h-60 overflow-y-auto z-10 shadow-lg">
                     {searchResults.map((result, index) => (
                       <li
@@ -398,45 +402,45 @@ export const Checkout = () => {
                     ))}
                   </ul>
                 )} */}
-                <Button
-                  className="bg-blue-bell h-12.5 lg:h-25 lg:col-span-1 text-white py-7 lg:py-10 px-7 text-[12px] lg:text-[25px] font-semibold font-popins leading-[100%] rounded-[10px] lg:rounded-[20px]"
-                  variant="default"
-                  onClick={(e: MouseEvent<HTMLButtonElement>) =>
-                    e.preventDefault()
-                  }
-                >
-                  Search
-                </Button>
-                <Button
-                  variant="default"
-                  className="bg-dust-grey/10 h-12.5 lg:h-25 text-[12px] lg:text-[25px] gap-7 col-span-full lg:col-span-6 flex justify-start text-cinnabar py-7 px-6.25 lg:py-10 lg:px-18.25 mt-6.25 lg:mt-10.25 leading-[100%] font-normal font-popins rounded-[6.31px] lg:rounded-[20px] border-0"
-                  onClick={(e: MouseEvent<HTMLButtonElement>) =>
-                    e.preventDefault()
-                  }
-                >
-                  <Subtract /> Use your current location
-                </Button>
-              </div>
+                  <Button
+                    className="bg-blue-bell h-12.5 lg:h-25 lg:col-span-1 text-white py-7 lg:py-10 px-7 text-[0.75rem] lg:text-[1.563rem] font-semibold font-popins leading-[100%] rounded-[0.625rem] lg:rounded-[1.25rem]"
+                    variant="default"
+                    onClick={(e: MouseEvent<HTMLButtonElement>) =>
+                      e.preventDefault()
+                    }
+                  >
+                    Search
+                  </Button>
+                  <Button
+                    variant="default"
+                    className="bg-dust-grey/10 h-12.5 lg:h-25 text-[0.75rem] lg:text-[1.563rem] gap-7 col-span-full lg:col-span-6 flex justify-start text-cinnabar py-7 px-6.25 lg:py-10 lg:px-18.25 mt-6.25 lg:mt-10.25 leading-[100%] font-normal font-popins rounded-[0.394rem] lg:rounded-[1.25rem] border-0"
+                    onClick={(e: MouseEvent<HTMLButtonElement>) =>
+                      e.preventDefault()
+                    }
+                  >
+                    <Subtract /> Use your current location
+                  </Button>
+                </div>
 
-              <div className="mt-3.5 lg:mt-10 rounded-lg overflow-hidden shadow-lg">
-                <MapContainer
-                  scrollWheelZoom={false}
-                  center={[40.885147, -73.9220459]}
-                  zoom={13}
-                  className="w-full h-164.75 rounded-xl z-10"
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={[40.885147, -73.9220459]}>
-                    <Popup>
-                      <div>
-                        <p>Test message</p>
-                      </div>
-                    </Popup>
-                  </Marker>
-                  {/* {selectedLocation && (
+                <div className="mt-3.5 lg:mt-10 rounded-lg overflow-hidden shadow-lg">
+                  <MapContainer
+                    scrollWheelZoom={false}
+                    center={[40.885147, -73.9220459]}
+                    zoom={13}
+                    className="w-full h-164.75 rounded-xl z-10"
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[40.885147, -73.9220459]}>
+                      <Popup>
+                        <div>
+                          <p>Test message</p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                    {/* {selectedLocation && (
                     <Marker position={[selectedLocation.lat, selectedLocation.lng]}>
                       <Popup>
                         <div className="text-center">
@@ -448,23 +452,34 @@ export const Checkout = () => {
                       </Popup>
                     </Marker>
                   )} */}
-                </MapContainer>
-              </div>
-              <div className="flex items-center justify-center mt-10 mb-[74.36px] lg:mt-25 lg:mb-31.25">
-                <Button
-                  onClick={handleSubmit}
-                  className="w-full lg:w-135 rounded-[20px] py-9 font-popins font-normal lg:font-semibold text-[16px] lg:text-[25px] leading-[110%]"
-                  type="submit"
-                >
-                  Order now
-                </Button>
-              </div>
-            </fieldset>
-          </form>
-         </FormikProvider>
+                  </MapContainer>
+                </div>
+                <div className="flex items-center justify-center mt-10 mb-[4.648rem] lg:mt-25 lg:mb-31.25">
+                  <Button
+                    onClick={handleSubmit}
+                    className="w-full lg:w-135 rounded-[1.25rem] py-9 font-popins font-normal lg:font-semibold text-[1rem] lg:text-[1.563rem] leading-[110%]"
+                    type="submit"
+                  >
+                    Order now
+                  </Button>
+                </div>
+              </fieldset>
+            </form>
+          </FormikProvider>
         </div>
       </div>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss transition={Slide} pauseOnHover draggable stacked />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        transition={Slide}
+        pauseOnHover
+        draggable
+        stacked
+      />
     </section>
   );
 };

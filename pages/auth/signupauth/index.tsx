@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useFormik } from "formik";
 import { object, string } from "yup";
+import { Input } from "@/common/input";
+import { Button } from "@/common/button";
 import LoginImage from "@/public/authassets/login1.png";
 import GoogleImage from "@/public/authassets/googlelogo.svg";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import LogoDelizosoIcon from "@/public/logoassets/logodeliziosoicon.png";
-import { Button } from "@/common/button";
-import { Input } from "@/common/input";
 
 interface SignUpValues {
   fullname: string;
@@ -73,10 +73,10 @@ export default function SignUpSection() {
         <div className="container px-4 mx-auto">
           <form onSubmit={formik.handleSubmit}>
             <fieldset className="flex flex-1 flex-col">
-              <legend className="font-raleway font-bold text-[50px] leading-[100%] mt-13">
+              <legend className="font-raleway font-bold text-[3.125rem] leading-[100%] mt-13">
                 Sign up
               </legend>
-              <p className="text-deep-walnut font-popins font-normal text-[20px] leading-[200%] mb-15">
+              <p className="text-deep-walnut font-popins font-normal text-[1.25rem] leading-[200%] mb-15">
                 Don&apos;t have an account?{" "}
                 <Link className="text-sky-500 font-medium" href={"/login"}>
                   Log in
@@ -85,7 +85,7 @@ export default function SignUpSection() {
               <div className="flex flex-col gap-y-10">
                 <div>
                   <Input
-                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[1.25rem] font-popins leading-[200%] font-normal"
                     variant="outline"
                     placeholder="Full name"
                     onChange={formik.handleChange}
@@ -95,46 +95,52 @@ export default function SignUpSection() {
                     value={formik.values.fullname}
                   />
                   {formik.errors.fullname && formik.touched.fullname && (
-                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                      {formik.errors.fullname}
+                    </p>
                   )}
                 </div>
                 <div>
-                <Input
-                  className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
-                  variant="outline"
-                  placeholder="Email address"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  type="email"
-                  value={formik.values.email}
-                />
-                {formik.errors.email && formik.touched.email && (
-                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
+                  <Input
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[1.25rem] font-popins leading-[200%] font-normal"
+                    variant="outline"
+                    placeholder="Email address"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    type="email"
+                    value={formik.values.email}
+                  />
+                  {formik.errors.email && formik.touched.email && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                      {formik.errors.fullname}
+                    </p>
                   )}
                 </div>
                 <div>
-                <Input
-                  className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[20px] font-popins leading-[200%] font-normal clas"
-                  variant="outline"
-                  placeholder="Password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  type="password"
-                  value={formik.values.password}
-                />
-                {formik.errors.password && formik.touched.password && (
-                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">{formik.errors.fullname}</p>
+                  <Input
+                    className="w-full h-17.5 bg-dust-grey/10 px-3 placeholder:text-grey-olive text-[1.25rem] font-popins leading-[200%] font-normal"
+                    variant="outline"
+                    placeholder="Password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    type="password"
+                    value={formik.values.password}
+                  />
+                  {formik.errors.password && formik.touched.password && (
+                    <p className="text-red-500 text-[0.875rem] pl-5 pt-0.5">
+                      {formik.errors.fullname}
+                    </p>
                   )}
                 </div>
               </div>
               <div className="flex items-center justify-between mt-10">
-                <label className="label text-deep-walnut text-[20px] font-normal font-popins leading-[200%] gap-x-5">
+                <label className="label text-deep-walnut text-[1.25rem] font-normal font-popins leading-[200%] gap-x-5">
                   <input type="checkbox" className="checkbox" />
                   Remember me
                 </label>
                 <Link
                   href={"*"}
-                  className="text-deep-walnut text-[20px] font-normal font-popins leading-[200%]"
+                  className="text-deep-walnut text-[1.25rem] font-normal font-popins leading-[200%]"
                 >
                   Forget Password?
                 </Link>
@@ -142,13 +148,13 @@ export default function SignUpSection() {
               <div className="flex flex-col space-y-5 mt-10">
                 <Button
                   onClick={handleSubmit}
-                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  className="h-17.5 rounded-[0.625rem] font-medium font-popins text-[1.25rem] leading-[100%]"
                   variant="primary"
                 >
                   Log in
                 </Button>
                 <Button
-                  className="h-17.5 rounded-[10px] font-medium font-popins text-[20px] leading-[100%]"
+                  className="h-17.5 rounded-[0.625rem] font-medium font-popins text-[1.25rem] leading-[100%]"
                   variant="outline"
                 >
                   <Image
@@ -172,7 +178,18 @@ export default function SignUpSection() {
           alt="Login Image"
         />
       </div>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss transition={Slide} pauseOnHover draggable stacked />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        transition={Slide}
+        pauseOnHover
+        draggable
+        stacked
+      />
     </section>
   );
 }
